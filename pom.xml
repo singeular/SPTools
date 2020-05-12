@@ -38,6 +38,7 @@
             <groupId>net.sourceforge.nekohtml</groupId>
             <artifactId>nekohtml</artifactId>
         </dependency>
+        <!-- 邮件 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-mail</artifactId>
@@ -51,6 +52,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
+        <!-- redis -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
@@ -61,6 +63,7 @@
                  </exclusion>
             </exclusions>
         </dependency>
+        <!-- 为了兼容 shiro-redis -->
         <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
@@ -70,17 +73,19 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
+        <!-- 工具类 -->
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
             <version>4.6.10</version>
         </dependency>
+        <!-- 阿里云存储SDK -->
         <dependency>
             <groupId>com.aliyun.oss</groupId>
             <artifactId>aliyun-sdk-oss</artifactId>
             <version>3.6.0</version>
         </dependency>
-        <!--权限校验-->
+        <!--shiro 权限校验-->
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-spring-boot-web-starter</artifactId>
@@ -96,6 +101,7 @@
             <artifactId>guava</artifactId>
             <version>25.1-jre</version>
         </dependency>
+        <!-- fastdfs SDK -->
         <dependency>
             <groupId>com.github.tobato</groupId>
             <artifactId>fastdfs-client</artifactId>
@@ -118,11 +124,13 @@
             <artifactId>lombok</artifactId>
             <version>1.16.18</version>
         </dependency>
+        <!--shiro使用redis做缓存-->
         <dependency>
             <groupId>org.crazycake</groupId>
             <artifactId>shiro-redis</artifactId>
             <version>3.2.3</version>
         </dependency>
+        <!--小程序工具包-->
         <dependency>
             <groupId>com.github.binarywang</groupId>
             <artifactId>wx-java-miniapp-spring-boot-starter</artifactId>
@@ -133,6 +141,7 @@
             <artifactId>emoji-java</artifactId>
             <version>5.1.1</version>
         </dependency>
+        <!--分布式-->
         <dependency>
             <groupId>org.redisson</groupId>
             <artifactId>redisson</artifactId>
@@ -149,6 +158,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-quartz</artifactId>
         </dependency>
+        <!--分布式文件服务SDK-->
         <dependency>
             <groupId>io.minio</groupId>
             <artifactId>minio</artifactId>
