@@ -19,7 +19,7 @@ JDK1.8、Maven、Mysql、Redis、IntelliJ IDEA、minio、fastdfs
 
 #### 安装教程
 
-- 启动前请配置 `application-dev.properties` 中相关`mysql`、`redis`以及非启动强依赖配置邮件、鉴黄、阿里云存储、分布式文件存储配置。
+- 启动前请配置 `application-dev.properties` 中相关`mysql`、`redis`以及非启动强依赖配置邮件、鉴黄、阿里云存储、分布式文件存储。
 
 - 数据库脚本位于 `src/main/resource/sql` 下面，启动前请自行导入。
 
@@ -64,3 +64,9 @@ JDK1.8、Maven、Mysql、Redis、IntelliJ IDEA、minio、fastdfs
         <td><img src="https://images.gitee.com/uploads/images/2020/0512/192851_30924c45_87650.png"/></td>
     </tr>
 </table>
+
+
+## 爪哇交流群
+
+<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=eba7a5d6f672c67cf942e08486e5102f0a0a6268206f873fef48a9d74f248de8"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="JAVA爱好者" title="JAVA爱好者"></a>
+
