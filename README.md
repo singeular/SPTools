@@ -7,6 +7,19 @@
 
 JDK1.8、Maven、Mysql、Redis、IntelliJ IDEA、minio、fastdfs
 
+#### 相关组件
+
+- ok-admin
+- vue
+- iView
+- echarts
+- clipboard
+- cropperjs
+- lightbox
+- nprogress
+- webuploader
+- ztree
+
 #### 内置功能
 
 - 组织机构：机构管理、用户管理、角色管理、行政区域。
