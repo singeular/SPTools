@@ -28,10 +28,16 @@ public class SysConfigServiceImpl implements SysConfigService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Result save(SysConfig config) {
-        if(config.getId()==null){
+        String nativeSql = "SELECT * FROM sys_config WHERE config_key=?";
+        SysConfig sysConfig =  dynamicQuery.nativeQuerySingleResult(
+                SysConfig.class,nativeSql,new Object[]{config.getKey()});
+        if(sysConfig!=null){
+            if(!config.getId().equals(sysConfig.getId())){
+                return Result.error("配置键重复");
+            }
+        }else{
             config.setGmtCreate(DateUtils.getTimestamp());
         }
-        config.setGmtModified(DateUtils.getTimestamp());
         config.setUserIdCreate(ShiroUtils.getUserId());
         sysConfigRepository.saveAndFlush(config);
         return Result.ok("保存成功");

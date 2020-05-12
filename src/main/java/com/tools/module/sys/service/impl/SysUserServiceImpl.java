@@ -38,9 +38,6 @@ public class SysUserServiceImpl implements SysUserService {
         if(sysUser!=null){
             if(!sysUser.getUserId().equals(user.getUserId())){
                 return Result.error("用户名重复");
-            }else{
-                nativeSql = "DELETE FROM sys_user_role WHERE user_id=?";
-                dynamicQuery.nativeExecuteUpdate(nativeSql,new Object[]{user.getUserId()});
             }
         }else{
             user.setGmtCreate(DateUtils.getTimestamp());
