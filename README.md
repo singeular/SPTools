@@ -26,16 +26,41 @@ JDK1.8、Maven、Mysql、Redis、IntelliJ IDEA、minio、fastdfs
 - 配置完成，运行`Application`中的 `main `方法。
 
 
+## 演示图
 
-#### 使用说明
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
 
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+<table>
+    <tr>
+        <td><img src="https://images.gitee.com/uploads/images/2020/0512/191648_a6db8c4c_87650.png"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2020/0512/191848_edcafb7e_87650.png"/></td>
+    </tr>
+    <tr>
+        <td><img src="https://images.gitee.com/uploads/images/2020/0512/192547_af73469b_87650.png"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2020/0512/192604_82b4bed9_87650.png"/></td>
+    </tr>
+    <tr>
+        <td><img src="https://images.gitee.com/uploads/images/2020/0512/192620_83bf77d3_87650.png"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2020/0512/192631_b52f7018_87650.png"/></td>
+    </tr>
+	<tr>
+        <td><img src="https://images.gitee.com/uploads/images/2020/0512/192646_28fc8ad8_87650.png"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2020/0512/192659_f344d433_87650.png"/></td>
+    </tr>	 
+    <tr>
+        <td><img src="https://images.gitee.com/uploads/images/2020/0512/192712_f1276903_87650.png"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2020/0512/192732_ae0d76b2_87650.png"/></td>
+    </tr>
+	<tr>
+        <td><img src="https://images.gitee.com/uploads/images/2020/0512/192745_4e6354f7_87650.png"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2020/0512/192800_eefa1344_87650.png"/></td>
+    </tr>
+	<tr>
+        <td><img src="https://images.gitee.com/uploads/images/2020/0512/192813_f7600d93_87650.png"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2020/0512/192824_75b4bb38_87650.png"/></td>
+    </tr>
+	<tr>
+        <td><img src="https://images.gitee.com/uploads/images/2020/0512/192839_205e772d_87650.png"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2020/0512/192851_30924c45_87650.png"/></td>
+    </tr>
+</table>
