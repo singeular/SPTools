@@ -1,6 +1,7 @@
+
 #### 介绍
 
-本来做的是个图床管理的项目，结果撸成了一个工具箱。
+本来做的是个图床管理的项目，结果撸成了一个工具箱，不定期追加新的功能。
 
 #### 基础环境
 
@@ -24,7 +25,6 @@ JDK1.8、Maven、Mysql、Redis、IntelliJ IDEA、minio、fastdfs
 - 数据库脚本位于 `src/main/resource/sql` 下面，启动前请自行导入。
 
 - 配置完成，运行`Application`中的 `main `方法。
-
 
 ## 演示图
 
@@ -66,7 +66,24 @@ JDK1.8、Maven、Mysql、Redis、IntelliJ IDEA、minio、fastdfs
 </table>
 
 
-## 爪哇交流群
+#### 爪哇交流群
 
 <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=eba7a5d6f672c67cf942e08486e5102f0a0a6268206f873fef48a9d74f248de8"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="JAVA爱好者" title="JAVA爱好者"></a>
 
+#### 推荐
+
+
+- 秒杀案例：https://gitee.com/52itstyle/spring-boot-seckill
+
+- 任务调度：https://gitee.com/52itstyle/spring-boot-quartz
+
+- 邮件服务：https://gitee.com/52itstyle/spring-boot-mail
+
+- 搜索服务：https://gitee.com/52itstyle/spring-boot-elasticsearch
+
+- 三大支付：https://gitee.com/52itstyle/spring-boot-pay
+
+
+作者： 小柒2012
+
+欢迎关注： https://blog.52itstyle.vip
