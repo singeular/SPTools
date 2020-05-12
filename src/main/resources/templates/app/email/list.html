@@ -36,11 +36,11 @@ layui.use(["okUtils", "okLayer"], function () {
                     return h('span', params.index + (that.table.pageNo- 1) * that.table.pageSize + 1);
                 }
             },{
-                key : "receive_email",
+                key : "receiveEmail",
                 title : "接收人邮箱",
                 minWidth:100
             },{
-                key : "cc_email",
+                key : "ccEmail",
                 title : "抄送人邮件",
                 minWidth:100
             },{
@@ -52,7 +52,7 @@ layui.use(["okUtils", "okLayer"], function () {
                 title : "模板",
                 minWidth:100
             },{
-                key : "gmt_create",
+                key : "gmtCreate",
                 title : "创建时间",
                 minWidth:100
             },{
@@ -145,17 +145,7 @@ layui.use(["okUtils", "okLayer"], function () {
                 });
             },
             remove : function (email) {
-                 okLayer.confirm("确定要删除吗？", function () {
-                    okUtils.ajaxCloud({
-                        url:"/app/email/delete",
-                        param : {roleId: role.roleId},
-                        success : function(result) {
-                            okLayer.msg.greenTick(result.msg, function () {
-                                 vm.load();
-                            });
-                        }
-                    });
-                 });
+
             },
             view: function (email) {
 

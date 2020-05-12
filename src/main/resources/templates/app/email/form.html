@@ -8,7 +8,7 @@
              <form-item prop="receiveEmail" label="接收人：">
                  <i-input maxlength="200" v-model="email.receiveEmail" placeholder="请输入接收人邮箱"></i-input>
              </form-item>
-             <form-item prop="ccEmail" label="抄送人：">
+             <form-item label="抄送人：">
                  <i-input maxlength="200" v-model="email.ccEmail" placeholder="请输入抄送人邮件"></i-input>
              </form-item>
              <form-item prop="subject" label="主题：">
@@ -25,13 +25,13 @@
 var vm = new Vue({
     el: '#app',
     data:{
-        email:{},
+        email:{
+            ccEmail:'',
+            template:''
+        },
         ruleValidate : {
              receiveEmail: [
                 { required: true, message: '接收人邮箱不能为空', trigger: 'blur' }
-             ],
-             ccEmail: [
-                { required: true, message: '抄送人邮件不能为空', trigger: 'blur' }
              ],
              subject: [
                 { required: true, message: '主题不能为空', trigger: 'blur' }
@@ -51,6 +51,7 @@ var vm = new Vue({
                      okUtils.ajaxCloud({
                         url:"/app/email/save",
                         param : vm.email,
+                        json:true,
                         success : function(result) {
                              okLayer.msg.greenTick(result.msg, function () {
                                   dialog.load();

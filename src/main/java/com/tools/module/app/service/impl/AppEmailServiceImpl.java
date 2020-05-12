@@ -7,9 +7,14 @@ import com.tools.common.util.DateUtils;
 import com.tools.module.app.entity.AppEmail;
 import com.tools.module.app.repository.AppEmailRepository;
 import com.tools.module.app.service.AppEmailService;
+import freemarker.template.Configuration;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,13 +27,32 @@ public class AppEmailServiceImpl implements AppEmailService {
     private DynamicQuery dynamicQuery;
     @Autowired
     private AppEmailRepository emailRepository;
+    @Autowired
+    private JavaMailSender mailSender;//执行者
+    @Autowired
+    public Configuration configuration;//freemarker
+    @Value("${spring.mail.username}")
+    public String USER_NAME;//发送者
+
+    static {
+        System.setProperty("mail.mime.splitlongparameters","false");
+    }
 
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Result save(AppEmail email) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom(USER_NAME);
+        message.setTo(email.getReceiveEmail());
+        if(StringUtils.isNotBlank(email.getReceiveEmail())){
+            message.setCc(email.getReceiveEmail());
+        }
+        message.setSubject(email.getSubject());
+        message.setText(email.getContent());
+        mailSender.send(message);
         email.setGmtCreate(DateUtils.getTimestamp());
-        emailRepository.saveAndFlush(email);
-        return Result.ok("保存成功");
+        emailRepository.save(email);
+        return Result.ok("发送成功");
     }
 
     @Override
