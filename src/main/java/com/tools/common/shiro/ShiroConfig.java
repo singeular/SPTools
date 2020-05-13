@@ -66,6 +66,10 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/sys/login","anon");
         filterChainDefinitionMap.put("/sys/register","anon");
         /**
+         * 短链
+         */
+        filterChainDefinitionMap.put("/r/**","anon");
+        /**
          * 管理后台
          */
         filterChainDefinitionMap.put("/sys/**", "roles[admin]");
