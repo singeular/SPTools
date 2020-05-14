@@ -119,3 +119,8 @@ JDK1.8、Maven、Mysql、Redis、IntelliJ IDEA、minio、fastdfs
 作者： 小柒2012
 
 欢迎关注： https://blog.52itstyle.vip
+
+
+这可能是东半球最好的妹子图小程序，点她、点她、点她！！！
+
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0224/192652_8e043ef1_87650.jpeg "meizi.jpg")
