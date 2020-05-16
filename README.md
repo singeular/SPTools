@@ -31,6 +31,25 @@ JDK1.8、Maven、Mysql、Redis、IntelliJ IDEA、minio、fastdfs
 - 系统管理：敏捷开发、系统菜单、全局配置，小伙伴们只需要设计好表结构，三秒中就能撸出一个增删查改的模块。
 
 
+#### 推荐阅读
+
+
+- [深夜吐血训练了100万小黄图撸了一个鉴黄接口](https://blog.52itstyle.vip/archives/4863/)
+
+- [UCloud 云服务内容鉴黄 Java 版本实现](https://blog.52itstyle.vip/archives/4935/)
+
+- [分享一款炒鸡好用的网盘+文件服务器](https://blog.52itstyle.vip/archives/5275/)
+
+- [SpringBoot 2.x 开发案例之妹子图接入 Redis 缓存](https://blog.52itstyle.vip/archives/5177/)
+
+- [SpringBoot 2.x 开发案例之 Shiro 整合 Redis](https://blog.52itstyle.vip/archives/5092/)
+
+- [SpringBoot 2.x 开发案例之优雅的处理异常](https://blog.52itstyle.vip/archives/5069/)
+
+- [SpringBoot 2.0 开发案例之整合FastDFS分布式文件系统](https://blog.52itstyle.vip/archives/4837/)
+
+
+
 #### 安装教程
 
 - 启动前请配置 `application-dev.properties` 中相关`mysql`、`redis`以及非启动强依赖配置邮件、鉴黄、阿里云存储、分布式文件存储。
