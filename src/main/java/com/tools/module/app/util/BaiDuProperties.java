@@ -4,7 +4,7 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @Data
-@ConfigurationProperties(prefix = "baidu")
+@ConfigurationProperties(prefix = "bai-du")
 public class BaiDuProperties {
 
     private String appId;
