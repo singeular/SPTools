@@ -34,7 +34,6 @@ public class BaiDuUtils {
     @Value("${file.path}")
     private String filePath;
 
-
     @PostConstruct
     public void init() {
         try {

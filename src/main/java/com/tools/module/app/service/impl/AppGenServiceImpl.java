@@ -27,11 +27,13 @@ public class AppGenServiceImpl implements AppGenService {
     @Override
     @Transactional(readOnly = true)
 	public Result list(AppGen gen){
-	    String countSql = "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema='tools' AND table_name NOT LIKE 'qrtz_%'";
-        Long totalCount = dynamicQuery.nativeQueryCount(countSql);
+	    String countSql = "SELECT COUNT(*) FROM information_schema.tables ";
+        countSql +="WHERE table_schema='tools' AND table_name NOT LIKE 'qrtz_%'";
+	    Long totalCount = dynamicQuery.nativeQueryCount(countSql);
         PageBean<AppGen> data = new PageBean<>();
         if(totalCount>0){
-            String nativeSql = "SELECT table_name as tableName,table_comment as tableComment FROM information_schema.tables WHERE table_schema='tools' AND table_name NOT LIKE 'qrtz_%'";
+            String nativeSql = "SELECT table_name as tableName,table_comment as tableComment ";
+            nativeSql+="FROM information_schema.tables WHERE table_schema='tools' AND table_name NOT LIKE 'qrtz_%'";
             Pageable pageable = PageRequest.of(gen.getPageNo(),gen.getPageSize());
             List<AppGen> list = dynamicQuery.nativeQueryPagingListModel(AppGen.class,pageable, nativeSql);
             data = new PageBean<>(list, totalCount);

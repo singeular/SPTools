@@ -6,6 +6,9 @@ import lombok.Data;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * 表以及相关字段信息
+ */
 @Data
 public class AppGen extends PageBean implements Serializable {
 
