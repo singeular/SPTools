@@ -37,7 +37,7 @@ public class SysAreaServiceImpl implements SysAreaService {
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor=Exception.class)
     @CacheEvict(cacheNames = {"sys:area:tree"})
     public Result save(SysArea area) {
         String nativeSql = "SELECT * FROM sys_area WHERE area_code=?";
@@ -66,7 +66,7 @@ public class SysAreaServiceImpl implements SysAreaService {
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor=Exception.class)
     @CacheEvict(cacheNames = {"sys:area:tree"})
     public Result delete(String areaCode) {
         String nativeSql = "SELECT COUNT(*) FROM sys_area WHERE parent_code=?";

@@ -150,7 +150,7 @@ public class SysUserServiceImpl implements SysUserService {
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor=Exception.class)
     public Result updatePwd(SysUser user) {
         String password = MD5Utils.encrypt(user.getUsername(),user.getPassword());
         String nativeSql = "UPDATE sys_user  SET password=? WHERE user_id=?";

@@ -29,7 +29,7 @@ public class AppTinyUrlServiceImpl implements AppTinyUrlService {
     private String url;
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor=Exception.class)
     public Result save(AppTinyUrl tinyUrl) {
         String[] keys =  tinyUrlUtil.ShortText(tinyUrl.getUrl());
         Integer hashKey = tinyUrl.getUrl().hashCode();

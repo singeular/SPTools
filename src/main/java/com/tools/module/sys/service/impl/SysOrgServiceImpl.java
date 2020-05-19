@@ -61,7 +61,7 @@ public class SysOrgServiceImpl implements SysOrgService {
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor=Exception.class)
     public Result save(SysOrg org) {
         String nativeSql = "SELECT * FROM sys_org WHERE code=?";
         SysOrg sysOrg =  dynamicQuery.nativeQuerySingleResult(
@@ -82,7 +82,7 @@ public class SysOrgServiceImpl implements SysOrgService {
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor=Exception.class)
     public Result delete(Long orgId) {
         String nativeSql = "SELECT COUNT(*) FROM sys_org WHERE parent_id=?";
         Long count = dynamicQuery.nativeQueryCount(nativeSql,new Object[]{orgId});

@@ -83,7 +83,7 @@ public class SysRoleServiceImpl implements SysRoleService {
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor=Exception.class)
     public Result delete(Long roleId) {
         String nativeSql = "DELETE FROM sys_role_menu WHERE role_id=?";
         dynamicQuery.nativeExecuteUpdate(nativeSql,new Object[]{roleId});
@@ -102,7 +102,7 @@ public class SysRoleServiceImpl implements SysRoleService {
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor=Exception.class)
     public Result saveMenu(SysRole role) {
         Long roleId = role.getRoleId();
         String nativeSql = "DELETE FROM sys_role_menu WHERE role_id=?";
@@ -127,7 +127,7 @@ public class SysRoleServiceImpl implements SysRoleService {
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor=Exception.class)
     public Result saveOrg(SysRole role) {
         Long roleId = role.getRoleId();
         String nativeSql = "DELETE FROM sys_role_org WHERE role_id=?";

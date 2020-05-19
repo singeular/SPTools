@@ -50,7 +50,7 @@ public class AppTaskServiceImpl implements AppTaskService {
 	}
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor=Exception.class)
     public void save(AppTask task) throws Exception{
         if(task.getOldGroup()!=null){
             JobKey key = new JobKey(task.getOldName(),task.getOldGroup());
@@ -84,7 +84,7 @@ public class AppTaskServiceImpl implements AppTaskService {
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor=Exception.class)
     public void delete(AppTask task) throws SchedulerException {
         TriggerKey triggerKey = TriggerKey.triggerKey(task.getName(), task.getGroup());
         /**
@@ -103,7 +103,7 @@ public class AppTaskServiceImpl implements AppTaskService {
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor=Exception.class)
     public void resume(AppTask task) throws SchedulerException {
         JobKey key = new JobKey(task.getName(),task.getGroup());
         if(StringUtils.equals(task.getTriggerState(),"PAUSED")){

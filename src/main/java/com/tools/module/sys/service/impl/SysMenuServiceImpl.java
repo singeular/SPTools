@@ -45,7 +45,7 @@ public class SysMenuServiceImpl implements SysMenuService {
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor=Exception.class)
     public Result delete(Long menuId) {
         String nativeSql = "SELECT * FROM sys_menu WHERE menu_id = ?";
         SysMenu menu =
@@ -93,7 +93,7 @@ public class SysMenuServiceImpl implements SysMenuService {
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor=Exception.class)
     public Result drop(Long parentId, Long menuId) {
         String nativeSql = "UPDATE sys_menu SET parent_id=? WHERE menu_id=?";
         int count = dynamicQuery.nativeExecuteUpdate(nativeSql,new Object[]{parentId,menuId});
