@@ -1,5 +1,5 @@
 "use strict";
-layui.use(["okUtils", "table", "countUp"], function () {
+layui.use(["element","okUtils", "table", "countUp"], function () {
     var countUp = layui.countUp;
     var table = layui.table;
     var okUtils = layui.okUtils;
