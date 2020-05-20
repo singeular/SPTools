@@ -58,6 +58,8 @@ JDK1.8、Maven、Mysql、Redis、IntelliJ IDEA、minio、fastdfs
 
 - 配置完成，运行`Application`中的 `main `方法。
 
+- 测试账号：admin 密码：111111
+
 ## 演示图
 
 
