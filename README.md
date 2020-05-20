@@ -56,6 +56,8 @@ JDK1.8、Maven、Mysql、Redis、IntelliJ IDEA、minio、fastdfs
 
 - 数据库脚本位于 `src/main/resource/sql` 下面，启动前请自行导入。
 
+- 请自行启动 `redis`，见基础环境目录，里面有配置教程。
+
 - 配置完成，运行`Application`中的 `main `方法。
 
 - 测试账号：admin 密码：111111
