@@ -102,9 +102,11 @@ JDK1.8、Maven、Mysql、Redis、IntelliJ IDEA、minio、fastdfs
 </table>
 
 
-#### 爪哇交流群
+#### 炒鸡工具箱交流群
 
-<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=eba7a5d6f672c67cf942e08486e5102f0a0a6268206f873fef48a9d74f248de8"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="JAVA爱好者" title="JAVA爱好者"></a>
+企鹅群：933593697
+
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0521/174508_3fc74b80_87650.png "超级工具箱群二维码.png")
 
 #### 推荐
 
