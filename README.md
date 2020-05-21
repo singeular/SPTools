@@ -9,10 +9,10 @@ JDK1.8、Maven、Mysql、Redis、IntelliJ IDEA、minio、fastdfs
 
 #### 相关组件
 
-- ok-admin
-- vue
-- iView
-- echarts
+- [ok-admin](https://gitee.com/bobi1234/ok-admin)
+- [vue](https://cn.vuejs.org/)
+- [iView](http://v1.iviewui.com/)
+- [echarts](https://echarts.apache.org/zh/index.html)
 - clipboard
 - cropperjs
 - lightbox
