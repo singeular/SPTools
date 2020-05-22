@@ -27,7 +27,6 @@ public class AppImageServiceImpl implements AppImageService {
 
     @Override
     public Result list(AppImage image) {
-        Short pornStatus = image.getPornStatus();
         String nativeSql = "SELECT COUNT(*) FROM app_image ";
         Long count = dynamicQuery.nativeQueryCount(nativeSql);
         PageBean<AppImage> data = new PageBean<>();
@@ -35,11 +34,7 @@ public class AppImageServiceImpl implements AppImageService {
             nativeSql = "SELECT * FROM app_image ORDER BY gmt_create desc";
             Pageable pageable = PageRequest.of(image.getPageNo(),image.getPageSize());
             List<AppImage> list =  dynamicQuery.nativeQueryPagingList(AppImage.class,pageable,nativeSql);
-            if(pornStatus!=null){
-                data = new PageBean(list,count);
-            }else{
-                data = new PageBean(list,(long)0);
-            }
+            data = new PageBean(list,count);
         }
         return Result.ok(data);
     }

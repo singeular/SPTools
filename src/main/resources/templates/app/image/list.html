@@ -49,7 +49,7 @@ layui.use(["flow", "okUtils", "okLayer"], function(){
     isLazyimg: true,
     done: function(page, next){ //加载下一页
           page--;
-          var data = {pageNumber:page,pageSize:12};
+          var data = {pageNo:page+1,pageSize:12};
           var images;
           okUtils.ajax("/app/image/list", "post", data, false).done(function (response) {
               console.log(response)
@@ -74,21 +74,6 @@ layui.use(["flow", "okUtils", "okLayer"], function(){
     }
   });
 });
-function show(uuid){
-<!--     okUtils.dialogOpen({-->
-<!--        id : 'layerForm',-->
-<!--        title: '查看',-->
-<!--        url: "/tools/images/image.html",-->
-<!--        scroll : true,-->
-<!--        width: '70%',-->
-<!--        height: '80%',-->
-<!--        btn:[],-->
-<!--        success : function(dialog) {-->
-<!--            dialog.vm.item.uuid = uuid;-->
-<!--            dialog.vm.load();-->
-<!--        },-->
-<!--    });-->
-}
 </script>
 </body>
 </html>
