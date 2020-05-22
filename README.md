@@ -54,7 +54,7 @@ JDK1.8、Maven、Mysql、Redis、IntelliJ IDEA、minio、fastdfs
 
 - 启动前请配置 `application-dev.properties` 中相关`mysql`、`redis`以及非启动强依赖配置邮件、鉴黄、阿里云存储、分布式文件存储。
 
-- 数据库脚本位于 `src/main/resource/sql` 下面，启动前请自行导入。
+- 数据库脚本位于企鹅群 `933593697`共享文件`炒鸡工具箱基础语句`，启动前请自行导入。
 
 - 请自行启动 `redis`，见基础环境目录，里面有配置教程。
 
