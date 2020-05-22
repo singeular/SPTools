@@ -34,12 +34,6 @@ public class FileController {
     @RequestMapping(value = "list", method = RequestMethod.POST)
     public Result list(HttpServletRequest request) throws FileNotFoundException {
         String filePath = ResourceUtils.getURL("classpath:").getPath();
-        if(active.equals("prod")){
-            String basePath = request.getSession().getServletContext().getRealPath("/");
-            filePath = basePath + SystemConstant.SF_FILE_SEPARATOR
-                    + "WEB-INF" + SystemConstant.SF_FILE_SEPARATOR
-                    + "classes" + SystemConstant.SF_FILE_SEPARATOR;
-        }
         List<SysFile> fileList = new ArrayList<>();
         getAllFilePaths(filePath,fileList,0,"");
         return Result.ok(fileList);
@@ -96,12 +90,6 @@ public class FileController {
     @RequestMapping(value = "getContent", method = RequestMethod.POST)
     public Result getContent(String filePath, HttpServletRequest request) throws FileNotFoundException {
         String path = ResourceUtils.getURL("classpath:").getPath();
-        if(active.equals("prod")){
-            String basePath = request.getSession().getServletContext().getRealPath("/");
-            path = basePath + SystemConstant.SF_FILE_SEPARATOR
-                    + "WEB-INF" + SystemConstant.SF_FILE_SEPARATOR
-                    + "classes";
-        }
         String content = FileUtil.readUtf8String(path+filePath);
         return Result.ok(content);
     }
@@ -113,16 +101,14 @@ public class FileController {
     public Result save(String filePath, String content, HttpServletRequest request) throws FileNotFoundException {
         String path = ResourceUtils.getURL("classpath:").getPath();
         if(active.equals("prod")){
-            String basePath = request.getSession().getServletContext().getRealPath("/");
-            path = basePath + SystemConstant.SF_FILE_SEPARATOR
-                    + "WEB-INF" + SystemConstant.SF_FILE_SEPARATOR
-                    + "classes";
+            return Result.error("演示环境禁止插插插！！！");
+        }else{
+            File file = new File(path+filePath);
+            long lastModified = file.lastModified();
+            FileUtil.writeUtf8String(content,path+filePath);
+            file.setLastModified(lastModified);
+            return Result.ok();
         }
-        File file = new File(path+filePath);
-        long lastModified = file.lastModified();
-        FileUtil.writeUtf8String(content,path+filePath);
-        file.setLastModified(lastModified);
-        return Result.ok();
     }
 
 }
