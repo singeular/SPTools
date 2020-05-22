@@ -12,6 +12,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 /**
  * 启动类
  * 爪哇笔记：https://blog.52itstyle.vip
+ * 演示地址：https://tools.cloudbed.vip
  */
 @SpringBootApplication
 @EnableCaching
@@ -21,7 +22,7 @@ public class Application extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
-        logger.info("爪哇工具箱启动");
+        logger.info("一个能够让程序猿快速开发的炒鸡工具箱");
     }
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
