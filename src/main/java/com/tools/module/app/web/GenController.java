@@ -135,7 +135,7 @@ public class GenController {
         /**
          * 生成后端代码 service 实现
          */
-        createCode("java/serviceImplFile.ftl", gen,serviceImplFile);
+        createCode("java/serviceImpl.ftl", gen,serviceImplFile);
         /**
          * 生成后端代码 controller 实现
          */

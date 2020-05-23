@@ -35,33 +35,29 @@ layui.use(["okUtils", "okLayer"], function () {
                 render: function(h, params) {
                     return h('span', params.index + (that.table.pageNo- 1) * that.table.pageSize + 1);
                 }
-            },<#list list as entity>{
-                key : "${entity.columnName}",
-                title : "${entity.columnComment}",
+            },{
+                key : "channel",
+                title : "通道",
                 minWidth:100
-            },</#list>{
+            },{
+                key : "content",
+                title : "内容",
+                minWidth:100
+            },{
+                key : "gmtCreate",
+                title : "创建时间",
+                minWidth:100
+            },{
+                key : "nickname",
+                title : "创建人",
+                minWidth:100
+            },{
                 title : '操作',
                 key : 'action',
                 minWidth : 300,
                 align : 'center',
                 render : function(h, params) {
                    var functionList = [];
-                   var edit = h('Button', {
-                       props : {
-                           type : 'primary',
-                           size : 'small',
-                           icon : 'md-create'
-                       },
-                       style : {
-                           marginRight : '8px'
-                       },
-                       on : {
-                           click : function() {
-                               vm.edit(params.row);
-                           }
-                       }
-                   }, '修改');
-                   functionList.push(edit);
                    var remove = h('Button', {
                        props : {
                            type : 'primary',
@@ -87,14 +83,14 @@ layui.use(["okUtils", "okLayer"], function () {
                 pageNo : 1,
                 description:''
             },
-            tableSize : 0,
+            tableSize : 50,
           }
         },
         methods: {
             load : function() {
                 var that = this;
                 okUtils.ajaxCloud({
-                    url:"/${prefix}/${function}/list",
+                    url:"/app/notice/list",
                     param : that.table,
                     success : function(result) {
                          that.tableData = result.msg.pageData;
@@ -118,36 +114,21 @@ layui.use(["okUtils", "okLayer"], function () {
             },
             add:function(){
                 okUtils.dialogOpen({
-                    title: '新增',
-                    url: "${prefix}/${function}/form.html",
+                    title: '推送',
+                    url: "app/notice/form.html",
                     scroll : true,
                     width: '30%',
-                    height: '45%',
+                    height: '40%',
                     yes : function(dialog) {
                         dialog.vm.acceptClick(vm);
                     }
                 });
             },
-            edit : function(${function}) {
-                okUtils.dialogOpen({
-                    title: '修改',
-                    url: "${prefix}/${function}/form.html",
-                    scroll : true,
-                    width: '30%',
-                    height: '45%',
-                    success : function(dialog) {
-                        dialog.vm.${function} = JSON.parse(JSON.stringify(${function}));
-                    },
-                    yes : function(dialog) {
-                        dialog.vm.acceptClick(vm);
-                    }
-                });
-            },
-            remove : function (${function}) {
+            remove : function (notice) {
                  okLayer.confirm("确定要删除吗？", function () {
                     okUtils.ajaxCloud({
-                        url:"/${prefix}/${function}/delete",
-                        param : {id: ${function}.id},
+                        url:"/app/notice/delete",
+                        param : {id: notice.id},
                         success : function(result) {
                             okLayer.msg.greenTick(result.msg, function () {
                                  vm.load();
