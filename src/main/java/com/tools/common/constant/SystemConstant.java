@@ -7,7 +7,7 @@ package com.tools.common.constant;
 public class SystemConstant {
 
 	/**
-	 * 分割符-文件分隔符
+	 * 文件分隔符
 	 */
 	public static final String SF_FILE_SEPARATOR = System.getProperty("file.separator");
 

@@ -40,7 +40,7 @@ public class YellowUtils {
      */
     public String check(String imageUrl) {
         try {
-            imageUrl = minUrl + imageUrl;
+            imageUrl = minUrl +"/"+ imageUrl;
             RestTemplate rest = new RestTemplate();
             HttpHeaders headers = new HttpHeaders();
             /**
