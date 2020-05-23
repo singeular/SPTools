@@ -3,6 +3,7 @@ package com.tools.module.sys.web;
 import com.tools.common.model.Result;
 import com.tools.module.sys.entity.SysArea;
 import com.tools.module.sys.service.SysAreaService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +16,7 @@ import java.util.List;
  * 区域管理
  * 爪哇笔记：https://blog.52itstyle.vip
  */
+@Api(tags ="区域管理")
 @RestController
 @RequestMapping("/sys/area")
 public class AreaController {

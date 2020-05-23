@@ -4,6 +4,7 @@ import cn.hutool.core.io.FileUtil;
 import com.tools.common.constant.SystemConstant;
 import com.tools.common.model.Result;
 import com.tools.module.sys.model.SysFile;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,7 @@ import java.util.List;
  * 文件管理-在线修改代码
  * 爪哇笔记：https://blog.52itstyle.vip
  */
+@Api(tags ="文件管理")
 @RestController
 @RequestMapping(value = "/sys/file")
 public class FileController {

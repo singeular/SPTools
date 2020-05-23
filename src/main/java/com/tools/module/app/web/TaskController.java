@@ -4,6 +4,7 @@ import com.tools.common.config.AbstractController;
 import com.tools.common.model.Result;
 import com.tools.module.app.entity.AppTask;
 import com.tools.module.app.service.AppTaskService;
+import io.swagger.annotations.Api;
 import org.quartz.JobKey;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
  * 任务调度
  * 爪哇笔记：https://blog.52itstyle.vip
  */
+@Api(tags ="任务调度")
 @RestController
 @RequestMapping("/app/task")
 public class TaskController extends AbstractController {

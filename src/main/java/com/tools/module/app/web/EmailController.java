@@ -4,6 +4,7 @@ import com.tools.common.config.AbstractController;
 import com.tools.common.model.Result;
 import com.tools.module.app.entity.AppEmail;
 import com.tools.module.app.service.AppEmailService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * 邮件管理
  * 爪哇笔记：https://blog.52itstyle.vip
  */
+@Api(tags ="邮件管理")
 @RestController
 @RequestMapping("/app/email")
 public class EmailController extends AbstractController {

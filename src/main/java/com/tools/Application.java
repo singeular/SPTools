@@ -8,6 +8,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * 启动类
@@ -17,6 +18,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @EnableCaching
 @EnableScheduling
+@EnableSwagger2
 public class Application extends SpringBootServletInitializer {
     private static final Logger logger = LoggerFactory.getLogger(Application.class);
 

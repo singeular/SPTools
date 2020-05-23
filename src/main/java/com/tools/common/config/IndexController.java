@@ -11,10 +11,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class IndexController {
 
 
-    @GetMapping("{url}.html")
-    public String page(@PathVariable("url") String url) {
-        return url;
-    }
+    @GetMapping("login.html")
+    public String login() { return "login"; }
+
+    @GetMapping("index.html")
+    public String index() { return "index"; }
+
+    @GetMapping("console.html")
+    public String console() { return "console"; }
 
     @GetMapping("{module}/{url}.html")
     public String page(@PathVariable("module") String module,@PathVariable("url") String url) {

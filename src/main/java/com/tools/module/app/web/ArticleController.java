@@ -10,6 +10,7 @@ import com.tools.common.model.Result;
 import com.tools.module.app.entity.AppArticle;
 import com.tools.module.app.service.AppArticleService;
 import com.tools.module.app.util.MinIoUtils;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +22,7 @@ import java.io.File;
  * 文章管理
  * 爪哇笔记：https://blog.52itstyle.vip
  */
+@Api(tags ="文章管理")
 @RestController
 @RequestMapping("/app/article")
 public class ArticleController extends AbstractController {

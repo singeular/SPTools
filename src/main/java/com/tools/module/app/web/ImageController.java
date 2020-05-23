@@ -11,6 +11,7 @@ import com.tools.module.app.entity.AppImage;
 import com.tools.module.app.service.AppImageService;
 import com.tools.module.app.util.AliYunUtils;
 import com.tools.module.app.util.MinIoUtils;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,6 +25,7 @@ import java.io.File;
  * 图床
  * 爪哇笔记：https://blog.52itstyle.vip
  */
+@Api(tags ="图片管理")
 @RestController
 @RequestMapping("app/image")
 public class ImageController {

@@ -9,6 +9,7 @@ import com.tools.module.app.service.AppGenService;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import io.swagger.annotations.Api;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -26,6 +27,7 @@ import java.util.List;
  * 代码生成
  * 爪哇笔记：https://blog.52itstyle.vip
  */
+@Api(tags ="代码生成")
 @RestController
 @RequestMapping("/app/gen")
 public class GenController {

@@ -4,6 +4,7 @@ import com.tools.common.config.AbstractController;
 import com.tools.common.model.Result;
 import com.tools.module.sys.entity.SysConfig;
 import com.tools.module.sys.service.SysConfigService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * 参数设置
  * 爪哇笔记：https://blog.52itstyle.vip
  */
+@Api(tags ="参数设置")
 @RestController
 @RequestMapping("/sys/config")
 public class ConfigController extends AbstractController {

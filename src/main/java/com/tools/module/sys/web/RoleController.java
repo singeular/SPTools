@@ -4,6 +4,7 @@ import com.tools.common.config.AbstractController;
 import com.tools.common.model.Result;
 import com.tools.module.sys.entity.SysRole;
 import com.tools.module.sys.service.SysRoleService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * 角色管理
  * 爪哇笔记：https://blog.52itstyle.vip
  */
+@Api(tags ="角色管理")
 @RestController
 @RequestMapping("/sys/role")
 public class RoleController extends AbstractController {

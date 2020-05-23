@@ -4,6 +4,7 @@ import com.tools.common.config.AbstractController;
 import com.tools.common.model.Result;
 import com.tools.module.sys.entity.SysUser;
 import com.tools.module.sys.service.SysUserService;
+import io.swagger.annotations.Api;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.support.DefaultSubjectContext;
@@ -21,6 +22,7 @@ import java.util.*;
  * 用户管理
  * 爪哇笔记：https://blog.52itstyle.vip
  */
+@Api(tags ="用户管理")
 @RestController
 @RequestMapping("/sys/user")
 public class UserController extends AbstractController {

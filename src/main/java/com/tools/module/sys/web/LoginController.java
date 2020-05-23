@@ -5,6 +5,7 @@ import com.tools.common.util.MD5Utils;
 import com.tools.common.util.ShiroUtils;
 import com.tools.module.sys.entity.SysUser;
 import com.tools.module.sys.service.SysUserService;
+import io.swagger.annotations.Api;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * 登录
  * 爪哇笔记：https://blog.52itstyle.vip
  */
+@Api(tags ="登录")
 @Controller
 @RequestMapping("/sys")
 public class LoginController {
