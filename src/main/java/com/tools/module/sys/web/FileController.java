@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -34,7 +33,7 @@ public class FileController {
      * @return
      */
     @RequestMapping(value = "list", method = RequestMethod.POST)
-    public Result list(HttpServletRequest request) throws FileNotFoundException {
+    public Result list() throws FileNotFoundException {
         String filePath = ResourceUtils.getURL("classpath:").getPath();
         List<SysFile> fileList = new ArrayList<>();
         getAllFilePaths(filePath,fileList,0,"");
@@ -90,7 +89,7 @@ public class FileController {
      * @return
      */
     @RequestMapping(value = "getContent", method = RequestMethod.POST)
-    public Result getContent(String filePath, HttpServletRequest request) throws FileNotFoundException {
+    public Result getContent(String filePath) throws FileNotFoundException {
         String path = ResourceUtils.getURL("classpath:").getPath();
         String content = FileUtil.readUtf8String(path+filePath);
         return Result.ok(content);
@@ -100,8 +99,11 @@ public class FileController {
      * @return
      */
     @RequestMapping(value = "save", method = RequestMethod.POST)
-    public Result save(String filePath, String content, HttpServletRequest request) throws FileNotFoundException {
+    public Result save(String filePath, String content) throws FileNotFoundException {
         String path = ResourceUtils.getURL("classpath:").getPath();
+        /**
+         * 生产环境自行解除
+         */
         if(active.equals("prod")){
             return Result.error("演示环境禁止插插插！！！");
         }else{

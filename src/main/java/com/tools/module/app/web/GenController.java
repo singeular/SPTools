@@ -118,50 +118,46 @@ public class GenController {
         /**
          * 生成静态页面
          */
-        Template template = configuration.getTemplate("html/list.ftl");
-        String text = FreeMarkerTemplateUtils.processTemplateIntoString(
-                template, gen);
-        FileUtil.writeString(text,listFile,"UTF-8");
-        template = configuration.getTemplate("html/form.ftl");
-        text = FreeMarkerTemplateUtils.processTemplateIntoString(
-                template, gen);
-        FileUtil.writeString(text,formFile,"UTF-8");
+        createCode("html/list.ftl", gen,listFile);
+        createCode("html/form.ftl", gen,formFile);
         /**
          * 生成后端代码 repository
          */
-        template = configuration.getTemplate("java/repository.ftl");
-        text = FreeMarkerTemplateUtils.processTemplateIntoString(
-                template, gen);
-        FileUtil.writeString(text,repositoryFile,"UTF-8");
+        createCode("java/repository.ftl", gen,repositoryFile);
         /**
          * 生成后端代码 entity
          */
-        template = configuration.getTemplate("java/entity.ftl");
-        text = FreeMarkerTemplateUtils.processTemplateIntoString(
-                template, gen);
-        FileUtil.writeString(text,entityFile,"UTF-8");
+        createCode("java/entity.ftl", gen,entityFile);
         /**
          * 生成后端代码 service
          */
-        template = configuration.getTemplate("java/service.ftl");
-        text = FreeMarkerTemplateUtils.processTemplateIntoString(
-                template, gen);
-        FileUtil.writeString(text,serviceFile,"UTF-8");
+        createCode("java/service.ftl", gen,serviceFile);
         /**
          * 生成后端代码 service 实现
          */
-        template = configuration.getTemplate("java/serviceImpl.ftl");
-        text = FreeMarkerTemplateUtils.processTemplateIntoString(
-                template, gen);
-        FileUtil.writeString(text,serviceImplFile,"UTF-8");
+        createCode("java/serviceImplFile.ftl", gen,serviceImplFile);
         /**
          * 生成后端代码 controller 实现
          */
-        template = configuration.getTemplate("java/controller.ftl");
-        text = FreeMarkerTemplateUtils.processTemplateIntoString(
-                template, gen);
-        FileUtil.writeString(text,controllerFile,"UTF-8");
+        createCode("java/controller.ftl", gen,controllerFile);
         return Result.ok();
+    }
+
+    /**
+     * 生成diamante
+     * @param model
+     * @param gen
+     * @param file
+     */
+    public void createCode(String model,AppGen gen,File file){
+        try {
+            Template template = configuration.getTemplate(model);
+            String text = FreeMarkerTemplateUtils.processTemplateIntoString(
+                    template, gen);
+            FileUtil.writeString(text,file,"UTF-8");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }
