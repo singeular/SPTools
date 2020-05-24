@@ -83,7 +83,7 @@ public class ShiroConfig {
          * 管理后台
          */
         filterChainDefinitionMap.put("/sys/**", "roles[admin]");
-        filterChainDefinitionMap.put("/**", "authc");
+        filterChainDefinitionMap.put("/**", "kickout,authc");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return shiroFilterFactoryBean;
     }
@@ -158,7 +158,7 @@ public class ShiroConfig {
         kickoutSessionControlFilter.setCacheManager(cacheManager());
         kickoutSessionControlFilter.setSessionManager(sessionManager());
         kickoutSessionControlFilter.setKickoutAfter(false);
-        kickoutSessionControlFilter.setMaxSession(1);
+        kickoutSessionControlFilter.setMaxSession(10);
         kickoutSessionControlFilter.setKickoutUrl("/login.html");
         return kickoutSessionControlFilter;
     }

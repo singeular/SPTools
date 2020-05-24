@@ -57,6 +57,7 @@ public class KickoutSessionControlFilter extends AccessControlFilter {
 
     @Override
     protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
+
         Subject subject = getSubject(request, response);
         if(!subject.isAuthenticated() && !subject.isRemembered()) {
             //如果没有登录，直接进行之后的流程
@@ -87,7 +88,7 @@ public class KickoutSessionControlFilter extends AccessControlFilter {
 
         //如果队列里的sessionId数超出最大会话数，开始踢人
         while(deque.size() > maxSession) {
-            Serializable kickoutSessionId = null;
+            Serializable kickoutSessionId;
             if(kickoutAfter) { //如果踢出后者
                 kickoutSessionId = deque.removeFirst();
                 //踢出后再更新下缓存队列
@@ -133,10 +134,10 @@ public class KickoutSessionControlFilter extends AccessControlFilter {
         }
         return true;
     }
-    private void out(ServletResponse hresponse, Map<String, String> resultMap){
+    private void out(ServletResponse response, Map<String, String> resultMap){
         try {
-            hresponse.setCharacterEncoding("UTF-8");
-            PrintWriter out = hresponse.getWriter();
+            response.setCharacterEncoding("UTF-8");
+            PrintWriter out = response.getWriter();
             //out.println(JSON.toJSONString(resultMap));
             out.println(resultMap);
             out.flush();
