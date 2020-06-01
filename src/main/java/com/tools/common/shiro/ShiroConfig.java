@@ -80,6 +80,10 @@ public class ShiroConfig {
          */
         filterChainDefinitionMap.put("/r/**","anon");
         /**
+         * 小程序
+         */
+        filterChainDefinitionMap.put("/minApp/**","anon");
+        /**
          * 管理后台
          */
         filterChainDefinitionMap.put("/sys/**", "roles[admin]");

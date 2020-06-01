@@ -1,10 +1,12 @@
 package com.tools.common.util;
 
+import cn.hutool.core.date.DateUtil;
+import com.tools.common.constant.SystemConstant;
 import org.apache.commons.codec.digest.DigestUtils;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
 
 /**
@@ -51,5 +53,24 @@ public class FileUtils {
             e.printStackTrace();
         }
         return "";
+    }
+    /**
+     * 创建多级文件夹
+     * @return
+     */
+    public static File createByDay(String filePath){
+        File parentFile = new File(filePath+ SystemConstant.SF_FILE_SEPARATOR+ DateUtil.thisYear());
+        if (!parentFile.exists()) {
+            parentFile.mkdirs();
+        }
+        parentFile = new File(parentFile,(DateUtil.thisMonth()+1)+"");
+        if (!parentFile.exists()) {
+            parentFile.mkdirs();
+        }
+        parentFile = new File(parentFile,DateUtil.thisDayOfMonth()+"");
+        if (!parentFile.exists()) {
+            parentFile.mkdirs();
+        }
+        return parentFile;
     }
 }
