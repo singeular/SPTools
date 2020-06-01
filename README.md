@@ -11,6 +11,8 @@ JDK1.8、Maven、Mysql、Redis、IntelliJ IDEA、minio、fastdfs
 
 [对，就是那个大家经常爬的妹子图！](https://gitee.com/52itstyle/mzitu)
 
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0601/214934_304ed9e5_87650.png "可以关注公众号的二维码.png")
+
 #### 相关组件
 
 - [ok-admin](https://gitee.com/bobi1234/ok-admin)
