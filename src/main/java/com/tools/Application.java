@@ -15,6 +15,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * 爪哇笔记：https://blog.52itstyle.vip
  * 演示地址：https://tools.cloudbed.vip
  * swagger地址：http://localhost:8080/swagger-ui.html
+ * 启动前请务必看 README.md 中的安装教程
  */
 @SpringBootApplication
 @EnableCaching
