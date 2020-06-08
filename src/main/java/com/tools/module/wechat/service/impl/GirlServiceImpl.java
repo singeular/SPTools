@@ -27,7 +27,7 @@ public class GirlServiceImpl implements GirlService {
     private DynamicQuery dynamicQuery;
     @Autowired
     private AliYunUtils aliYunUtils;
-    @Value("${aliyun.oss.url}")
+    @Value("${ali-yun.oss.url}")
     private String ossUrl;
 
     private static int corePoolSize = Runtime.getRuntime().availableProcessors();
