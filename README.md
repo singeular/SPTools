@@ -131,3 +131,9 @@ JDK1.8、Maven、Mysql、Redis、IntelliJ IDEA、minio、fastdfs
 作者： 小柒2012
 
 欢迎关注： https://blog.52itstyle.vip
+
+
+## 云服务推荐
+
+[![输入图片说明](https://images.gitee.com/uploads/images/2020/0609/222359_e44f1a3f_87650.jpeg "屏幕截图.png")](https://www.aliyun.com/activity/618/index?userCode=kutpfdo3)
+
