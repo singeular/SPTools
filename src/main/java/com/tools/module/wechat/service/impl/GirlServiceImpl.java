@@ -30,11 +30,6 @@ public class GirlServiceImpl implements GirlService {
     @Value("${ali-yun.oss.url}")
     private String ossUrl;
 
-    private static int corePoolSize = Runtime.getRuntime().availableProcessors();
-    private static ThreadPoolExecutor executor  =
-            new ThreadPoolExecutor(corePoolSize, corePoolSize+1, 10l, TimeUnit.SECONDS,
-                    new LinkedBlockingQueue<>(100));
-
     @Override
     public Result list(Integer pageSize, Integer pageNo) {
         String nativeSql = "SELECT * FROM app_girl WHERE status=? GROUP BY id DESC ";
@@ -47,11 +42,12 @@ public class GirlServiceImpl implements GirlService {
     @Override
     @Transactional(rollbackFor=Exception.class)
     public void upload(Girl image, File toPic,File fromPic) {
-        Runnable task = () -> {
-            String picName = image.getOssUrl().replace("zoom_","");
-            aliYunUtils.upload(fromPic,picName);
-        };
-        executor.execute(task);
+        /**
+         * 不需要阿里云OSS注释掉就可以
+         * 缩放、正常
+         */
+        String picName = image.getOssUrl().replace("zoom_","");
+        aliYunUtils.upload(fromPic,picName);
         aliYunUtils.upload(toPic,image.getOssUrl());
         image.setOssUrl(ossUrl+"/"+image.getOssUrl());
         dynamicQuery.save(image);

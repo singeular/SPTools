@@ -75,6 +75,10 @@ public class GirlController {
                 image.setGmtCreate(DateUtils.getTimestamp());
                 image.setStatus(Short.parseShort(status));
                 meiZiService.upload(image,toPic,fromPic);
+                /**
+                 * 默认返回的是阿里云OSS地址
+                 * 如果不需要改成本地的就可以
+                 */
                 res.put("url",ossUrl+"/"+fileDay+"/"+fileName);
                 res.put("success", 1);
                 res.put("message", "upload success!");
