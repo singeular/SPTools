@@ -58,7 +58,9 @@ var setting = {
     callback : {
         onClick : function(event, treeId, treeNode) {
              vm.filePath = treeNode.parentPath;
-             vm.getContent();
+             if(!treeNode.directory){
+                vm.getContent();
+             }
         },
         onExpand:function(event, treeId, treeNode){
 

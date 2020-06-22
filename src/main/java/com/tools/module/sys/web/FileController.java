@@ -59,6 +59,7 @@ public class FileController {
             sysFile.setFileId(num);
             sysFile.setParentId(level);
             if (file.isDirectory()) {
+                sysFile.setDirectory(true);
                 if(level==0){
                     if(file.getName().equals("templates")||
                             file.getName().equals("static")){
@@ -75,6 +76,7 @@ public class FileController {
                 }
             } else {
                 if(level!=0){
+                    sysFile.setDirectory(false);
                     sysFile.setParentPath(parentPath+SystemConstant.SF_FILE_SEPARATOR+file.getName());
                     filePathList.add(sysFile);
                     num++;

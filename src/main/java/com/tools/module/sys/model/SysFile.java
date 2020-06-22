@@ -8,4 +8,5 @@ public class SysFile {
     private String name;
     private Integer parentId;
     private String parentPath;
+    private boolean directory;
 }
