@@ -9,6 +9,16 @@
     <script th:if="${#strings.contains(script,'tree')}"
             type="text/javascript" th:src="@{/lib/ztree/jquery.ztree.all.min.js}"></script>
 
+    <!---codemirror--->
+    <script th:if="${#strings.contains(script,'codemirror')}"
+            type="text/javascript" th:src="@{/lib/codemirror/lib/codemirror.js}"></script>
+    <script th:if="${#strings.contains(script,'codemirror')}"
+            type="text/javascript" th:src="@{/lib/codemirror/addon/hint/show-hint.js}"></script>
+    <script th:if="${#strings.contains(script,'codemirror')}"
+            type="text/javascript" th:src="@{/lib/codemirror/addon/hint/sql-hint.js}"></script>
+    <script th:if="${#strings.contains(script,'codemirror')}"
+            type="text/javascript" th:src="@{/lib/codemirror/mode/sql/sql.js}"></script>
+
     <script th:if="${#strings.contains(script,'clipboard')}"
             type="text/javascript" th:src="@{/lib/clipboard/clipboard.min.js}"></script>
     <script type="text/javascript" th:src="@{/lib/layui/layui.js}"></script>

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="common/head :: head(link)"/>
+<head th:replace="common/head :: head(link、、codemirror)"/>
 <body>
 	    <div id="app" class="layui-fluid"  v-cloak>
 	         <div class="layui-row"  style="padding: 20px">
                 <template>
-                    <i-input type="textarea"  :autosize="{minRows: 6,maxRows: 10}"  v-model="sql" placeholder="输入任务"></i-input>
+                    <i-input  id="code" type="textarea"  :autosize="{minRows: 6,maxRows: 10}"  v-model="sql" placeholder="输入查询语句"></i-input>
                     <br/> <br/>
                     <i-button style="float: right" @click="query" type="primary" icon="ios-search">查询</i-button>
                 </template>

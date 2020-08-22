@@ -161,4 +161,8 @@ public class SysUserServiceImpl implements SysUserService {
             return Result.ok("修改失败");
         }
     }
+
+    public static void main(String[] args) {
+        System.out.println(MD5Utils.encrypt("admin", "admin2020"));
+    }
 }
