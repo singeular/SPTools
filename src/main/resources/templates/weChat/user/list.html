@@ -80,26 +80,10 @@ layui.use(["okUtils", "okLayer"], function () {
             },{
                 title : '操作',
                 key : 'action',
-                minWidth : 300,
+                minWidth : 100,
                 align : 'center',
                 render : function(h, params) {
                     var functionList = [];
-                    var edit = h('Button', {
-                        props : {
-                            type : 'primary',
-                            size : 'small',
-                            icon : 'md-create'
-                        },
-                        style : {
-                            marginRight : '8px'
-                        },
-                        on : {
-                            click : function() {
-                                vm.edit(params.row);
-                            }
-                        }
-                    }, '修改');
-                    functionList.push(edit);
                     var remove = h('Button', {
                         props : {
                             type : 'primary',

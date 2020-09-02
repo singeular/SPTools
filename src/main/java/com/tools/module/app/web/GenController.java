@@ -72,7 +72,7 @@ public class GenController {
      * @throws TemplateException
      */
     @PostMapping("/create")
-    public Result create(@RequestBody AppGen gen) throws IOException, TemplateException {
+    public Result create(@RequestBody AppGen gen){
         /**
          * 获取表字段以及注释
          */
@@ -140,7 +140,7 @@ public class GenController {
          * 生成后端代码 controller 实现
          */
         createCode("java/controller.ftl", gen,controllerFile);
-        return Result.ok();
+        return Result.ok(filePath);
     }
 
     /**
