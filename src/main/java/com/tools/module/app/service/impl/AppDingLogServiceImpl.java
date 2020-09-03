@@ -19,7 +19,7 @@ import java.util.List;
  * @Author 爪洼笔记
  * @Date 2022/9/34
  */
-@Service
+@Service("dingLogService")
 public class AppDingLogServiceImpl implements AppDingLogService {
 
     @Autowired

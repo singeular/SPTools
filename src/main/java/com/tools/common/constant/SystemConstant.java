@@ -76,6 +76,19 @@ public class SystemConstant {
 
     public static final Short HOT_STATUS_NO = 0;
 
+    /**
+     * 签到：0  否 1 是
+     */
+    public static final Short SIGN_STATUS_YES = 1;
+
+    public static final Short SIGN_STATUS_NO = 0;
+
+
+    /**
+     * 异常标识
+     */
+    public static final String CODE_500 = "500";
+
 	/**
 	 * 菜单类型
 	 */

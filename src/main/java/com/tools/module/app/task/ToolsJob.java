@@ -1,10 +1,18 @@
 package com.tools.module.app.task;
 
+import com.tools.common.util.SpringUtils;
+import com.tools.module.app.entity.AppDingUser;
+import com.tools.module.app.service.AppDingService;
+import com.tools.module.app.service.AppDingUserService;
 import org.quartz.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.List;
 
 /**
  * 实现序列化接口、防止重启应用出现quartz Couldn't retrieve job because a required class was not found 的问题
@@ -16,6 +24,13 @@ import java.lang.reflect.Method;
 public class ToolsJob implements Job, Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    protected Logger logger = LoggerFactory.getLogger(getClass());
+
+    @Autowired
+    private AppDingService dingService;
+    @Autowired
+    private AppDingUserService dingUserService;
 
     @Override
     public void execute(JobExecutionContext context){
@@ -42,5 +57,15 @@ public class ToolsJob implements Job, Serializable {
     }
     public void test2(){
         System.out.println("测试方法2");
+    }
+
+    /**
+     * 批量签到
+     */
+    public void sign(){
+        dingService = SpringUtils.getBean("appDingService");
+        dingUserService = SpringUtils.getBean("dingUserService");
+        List<AppDingUser> list = dingUserService.listUser();
+        list.forEach(user-> dingService.sign(user));
     }
 }

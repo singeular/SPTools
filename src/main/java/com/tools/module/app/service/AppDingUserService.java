@@ -12,13 +12,15 @@ import java.util.List;
  */
 public interface AppDingUserService {
 
-    Result listUserinfo(Integer pageNo, Integer pageSize);
+    Result list(AppDingUser user);
 
     List<AppDingUser> listUser();
 
+    AppDingUser get(Integer userId);
+
     Result save(AppDingUser user);
 
-    Result delete(AppDingUser user);
+    Result delete(Integer userId);
 
     Result update(AppDingUser user);
 }

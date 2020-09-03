@@ -77,7 +77,7 @@ public class SysMenuServiceImpl implements SysMenuService {
         nativeSql +="LEFT JOIN sys_role_menu rm ON m.menu_id = rm.menu_id ";
         nativeSql +="LEFT JOIN sys_role r ON r.role_id = rm.role_id ";
         nativeSql +="WHERE r.role_id IN (SELECT role_id FROM sys_user_role WHERE user_id=?) ";
-        nativeSql +="AND m.TYPE = 0 ";
+        nativeSql +="AND m.TYPE = 0 ORDER BY m.order_num";
         List<SysMenu> list = dynamicQuery.query(SysMenu.class,nativeSql,new Object[]{userId});
         list.stream().forEach(menu->{
             String subSql = "SELECT DISTINCT m.* FROM sys_menu m ";

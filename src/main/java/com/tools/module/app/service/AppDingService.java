@@ -1,7 +1,6 @@
 package com.tools.module.app.service;
 
 import com.tools.common.model.Result;
-import com.tools.module.app.entity.AppDingDetails;
 import com.tools.module.app.entity.AppDingUser;
 
 /**
@@ -31,5 +30,12 @@ public interface AppDingService {
      * @param detail
      * @return
      */
-    Result sin(String authorization, String planId, AppDingDetails detail);
+    String sin(String authorization, String planId, AppDingUser detail);
+
+    /**
+     * 触发签到
+     * @param user
+     * @return
+     */
+    Result sign(AppDingUser user);
 }
