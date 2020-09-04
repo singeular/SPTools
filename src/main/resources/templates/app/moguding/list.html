@@ -44,9 +44,13 @@ layui.use(["okUtils", "okLayer"], function () {
                 title : "地址",
                 minWidth:100
             },{
-                key : "description",
-                title : "信息",
-                minWidth:150
+                key : "longitude",
+                title : "经度",
+                minWidth:100
+            },{
+                key : "latitude",
+                title : "维度",
+                minWidth:100
             },{
                 key : "gmtCreate",
                 title : "创建时间",
@@ -150,8 +154,8 @@ layui.use(["okUtils", "okLayer"], function () {
                     title: '修改',
                     url: "app/moguding/form.html",
                     scroll : true,
-                    width: '40%',
-                    height: '90%',
+                    width: '60%',
+                    height: '60%',
                     success : function(dialog) {
                         dialog.vm.user.userId = user.userId;
                         dialog.vm.load();
@@ -166,8 +170,8 @@ layui.use(["okUtils", "okLayer"], function () {
                     title: '新增',
                     url: "app/moguding/form.html",
                     scroll : true,
-                    width: '40%',
-                    height: '90%',
+                    width: '60%',
+                    height: '60%',
                     success : function(dialog) {
                         dialog.vm.load();
                     },

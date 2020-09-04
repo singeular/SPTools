@@ -2,11 +2,13 @@ package com.tools.module.app.web;
 
 import com.tools.common.config.AbstractController;
 import com.tools.common.model.Result;
+import com.tools.common.util.BaiDuMapUtils;
 import com.tools.common.util.CommonUtils;
 import com.tools.module.app.entity.AppDingUser;
 import com.tools.module.app.service.AppDingService;
 import com.tools.module.app.service.AppDingUserService;
 import io.swagger.annotations.Api;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -70,6 +72,16 @@ public class DingController extends AbstractController {
     public Result sign(Integer userId){
         AppDingUser user = dingUserService.get(userId);
         return appDingService.sign(user);
+    }
+
+    /**
+     * 获取经纬度
+     * @param address
+     * @return
+     */
+    @PostMapping("getLocation")
+    public Result getLocation(String address){
+        return BaiDuMapUtils.getCoordinate(address);
     }
 
     /**

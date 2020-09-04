@@ -30,7 +30,7 @@ layui.use(["okUtils", "okLayer"], function () {
 		return {
             tableTitle : [{
                 title: '序号',
-                minWidth : 100,
+                minWidth : 70,
                 render: function(h, params) {
                     return h('span', params.index + (that.task.pageNo- 1) * that.task.pageSize + 1);
                 }
@@ -49,7 +49,11 @@ layui.use(["okUtils", "okLayer"], function () {
             },{
                 key : "methodName",
                 title : "执行方法",
-                minWidth:100
+                width:80
+            },{
+                key : "cronExpression",
+                title : "执行时间",
+                width:150
             },{
                 key : "gmtCreate",
                 title : "创建时间",
@@ -57,7 +61,7 @@ layui.use(["okUtils", "okLayer"], function () {
             },{
                 title : '操作',
                 key : 'action',
-                minWidth : 320,
+                minWidth : 350,
                 align : 'center',
                 render : function(h, params) {
                     var functionList = [];

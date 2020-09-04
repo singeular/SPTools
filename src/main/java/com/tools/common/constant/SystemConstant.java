@@ -90,6 +90,11 @@ public class SystemConstant {
     public static final String CODE_500 = "500";
 
 	/**
+	 * CODE 标识
+	 */
+	public static final String CODE_0 = "0";
+
+	/**
 	 * 菜单类型
 	 */
 	public enum MenuType {
