@@ -84,7 +84,7 @@ public class SysMenuServiceImpl implements SysMenuService {
             subSql +="LEFT JOIN sys_role_menu rm ON m.menu_id = rm.menu_id ";
             subSql +="LEFT JOIN sys_role r ON r.role_id = rm.role_id ";
             subSql +="WHERE r.role_id IN (SELECT role_id FROM sys_user_role WHERE user_id=?) ";
-            subSql +="AND m.parent_id = ?";
+            subSql +="AND m.parent_id = ? ORDER BY m.order_num";
             List<SysMenu> subList
                     = dynamicQuery.query(SysMenu.class,subSql,new Object[]{userId,menu.getMenuId()});
             menu.setList(subList);

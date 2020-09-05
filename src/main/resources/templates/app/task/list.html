@@ -35,24 +35,24 @@ layui.use(["okUtils", "okLayer"], function () {
                     return h('span', params.index + (that.task.pageNo- 1) * that.task.pageSize + 1);
                 }
             },{
-                key : "name",
-                title : "任务名称",
-                minWidth:100
-            },{
                 key : "group",
                 title : "任务分组",
                 minWidth:100
             },{
+                key : "name",
+                title : "任务名称",
+                minWidth:100
+            },{
                 key : "taskClassName",
-                title : "执行类",
+                title : "类",
                 minWidth:260
             },{
                 key : "methodName",
-                title : "执行方法",
+                title : "方法",
                 width:80
             },{
                 key : "cronExpression",
-                title : "执行时间",
+                title : "时间",
                 width:150
             },{
                 key : "gmtCreate",
