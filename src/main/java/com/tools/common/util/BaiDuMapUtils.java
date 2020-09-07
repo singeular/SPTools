@@ -6,13 +6,11 @@ import com.tools.common.model.Result;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.*;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.client.RestTemplate;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
 import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
@@ -27,9 +25,11 @@ public class BaiDuMapUtils {
 
     static Logger logger = LoggerFactory.getLogger(BaiDuMapUtils.class);
 
-    static String AK = "888";
+    static String AK = "*****************";
 
-    static String SN ="888";
+    static String SN ="*****************";
+
+    static String STATUS ="status";
 
     public static void main(String[] args) {
         String dom = "北京王府井";
@@ -44,12 +44,22 @@ public class BaiDuMapUtils {
     public static Result getCoordinate(String address) {
         if (address != null && !"".equals(address)) {
             address = address.replaceAll("\\s*", "").replace("#", "栋");
-            String url = "http://api.map.baidu.com/geocoding/v3/?address=" + address + "&output=json&ak=" + AK+"&SN="+SN;
-            String json = loadJSON(url);
+            String url = "http://api.map.baidu.com/geocoding/v3";
+            RestTemplate client = new RestTemplate();
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+            MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
+            params.add("address",address);
+            params.add("output","json");
+            params.add("ak",AK);
+            params.add("sn",SN);
+            HttpEntity<MultiValueMap<String, String>> requestEntity = new HttpEntity<>(params, headers);
+            ResponseEntity<String> response = client.exchange(url, HttpMethod.POST, requestEntity, String.class);
+            String json = response.getBody();
             logger.info("位置信息：{}",json);
             if (StringUtils.isNotBlank(json)) {
                 JSONObject obj = JSONObject.parseObject(json);
-                if (SystemConstant.CODE_0.equals(obj.getString("status"))) {
+                if (SystemConstant.CODE_0.equals(obj.getString(STATUS))) {
                     /**
                      * 经度
                      */
@@ -72,24 +82,5 @@ public class BaiDuMapUtils {
         }else{
             return Result.error();
         }
-    }
-
-    public static String loadJSON(String url) {
-        StringBuilder json = new StringBuilder();
-        try {
-            URL oracle = new URL(url);
-            URLConnection yc = oracle.openConnection();
-            BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream(), "UTF-8"));
-            String inputLine;
-            while ((inputLine = in.readLine()) != null) {
-                json.append(inputLine);
-            }
-            in.close();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return json.toString();
     }
 }
