@@ -15,7 +15,7 @@ public interface AppDingLogService {
      */
     Result listSignInLog(AppDingSignInLog log);
 
-    Result delete(AppDingSignInLog signInLog);
+    Result delete(Integer logId);
 
     void save(AppDingSignInLog signInLog);
 

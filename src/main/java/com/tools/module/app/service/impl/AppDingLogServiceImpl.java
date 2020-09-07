@@ -38,8 +38,7 @@ public class AppDingLogServiceImpl implements AppDingLogService {
                 nativeSql.append("WHERE username = ?");
                 params = new Object[]{log.getUsername()};
             }
-            nativeSql.append(" order by logId desc");
-            Pageable pageable = PageRequest.of(log.getPageNo() - 1, log.getPageSize());
+            Pageable pageable = PageRequest.of(log.getPageNo(), log.getPageSize());
             List<AppDingSignInLog> list = dynamicQuery.nativeQueryPagingList(AppDingSignInLog.class, pageable, nativeSql.toString(), params);
             data = new PageBean<>(list, totalCount);
         }
@@ -48,9 +47,9 @@ public class AppDingLogServiceImpl implements AppDingLogService {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public Result delete(AppDingSignInLog signInLog) {
+    public Result delete(Integer logId) {
         String nativeSql = "DELETE FROM app_ding_signIn_log WHERE id=?";
-        dynamicQuery.nativeExecuteUpdate(nativeSql,new Object[]{signInLog.getLogId()});
+        dynamicQuery.nativeExecuteUpdate(nativeSql,new Object[]{logId});
         return Result.ok();
     }
 

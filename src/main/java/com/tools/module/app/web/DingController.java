@@ -4,7 +4,9 @@ import com.tools.common.config.AbstractController;
 import com.tools.common.model.Result;
 import com.tools.common.util.BaiDuMapUtils;
 import com.tools.common.util.CommonUtils;
+import com.tools.module.app.entity.AppDingSignInLog;
 import com.tools.module.app.entity.AppDingUser;
+import com.tools.module.app.service.AppDingLogService;
 import com.tools.module.app.service.AppDingService;
 import com.tools.module.app.service.AppDingUserService;
 import io.swagger.annotations.Api;
@@ -30,6 +32,9 @@ public class DingController extends AbstractController {
 
     @Autowired
     private AppDingUserService dingUserService;
+
+    @Autowired
+    private AppDingLogService dingLogService;
 
     /**
      * 列表
@@ -81,6 +86,22 @@ public class DingController extends AbstractController {
     @PostMapping("getLocation")
     public Result getLocation(String address){
         return BaiDuMapUtils.getCoordinate(address);
+    }
+
+    /**
+     * 签到日志
+     */
+    @PostMapping("log")
+    public Result log(AppDingSignInLog log){
+        return  dingLogService.listSignInLog(log);
+    }
+
+    /**
+     * 删除日志
+     */
+    @PostMapping("log/delete")
+    public Result deleteLog(Integer logId){
+        return  dingLogService.delete(logId);
     }
 
     /**
