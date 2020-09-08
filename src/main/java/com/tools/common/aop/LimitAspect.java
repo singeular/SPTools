@@ -19,24 +19,28 @@ import java.util.concurrent.TimeUnit;
 /**
  * 限流 AOP
  * 爪哇笔记 https://blog.52itstyle.vip
+ * @author 小柒2012
  */
 @Aspect
 @Configuration
 public class LimitAspect {
 
-    //根据IP分不同的令牌桶, 每天自动清理缓存
+    /**
+     * 根据IP分不同的令牌桶, 每天自动清理缓存 每秒只发出6个令牌
+     */
     private static LoadingCache<String, RateLimiter> caches = CacheBuilder.newBuilder()
             .maximumSize(1000)
             .expireAfterWrite(1, TimeUnit.DAYS)
             .build(new CacheLoader<String, RateLimiter>() {
                 @Override
                 public RateLimiter load(String key) {
-                    // 新的IP初始化 每秒只发出6个令牌
                     return RateLimiter.create(6);
                 }
             });
 
-    //Service层切点  限流
+    /**
+     * Service层切点  限流
+     */
     @Pointcut("@annotation(com.tools.common.aop.ServiceLimit)")
     public void ServiceAspect() {
 

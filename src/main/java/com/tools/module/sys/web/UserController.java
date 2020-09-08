@@ -2,9 +2,11 @@ package com.tools.module.sys.web;
 
 import com.tools.common.config.AbstractController;
 import com.tools.common.model.Result;
+import com.tools.common.util.ShiroUtils;
 import com.tools.module.sys.entity.SysUser;
 import com.tools.module.sys.service.SysUserService;
 import io.swagger.annotations.Api;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.support.DefaultSubjectContext;
@@ -21,6 +23,7 @@ import java.util.*;
 /**
  * 用户管理
  * 爪哇笔记：https://blog.52itstyle.vip
+ * @author 小柒2012
  */
 @Api(tags ="用户管理")
 @RestController
@@ -70,6 +73,22 @@ public class UserController extends AbstractController {
     @PostMapping("/updatePwd")
     public Result updatePwd(SysUser user){
         return sysUserService.updatePwd(user);
+    }
+
+    /**
+     * 获取当前用户信息
+     */
+    @PostMapping("/info")
+    public Result info(){
+        return sysUserService.get(ShiroUtils.getUserId());
+    }
+
+    /**
+     * 更新用户信息
+     */
+    @PostMapping("/update")
+    public Result update(@RequestBody SysUser user){
+        return sysUserService.update(user);
     }
 
     /**

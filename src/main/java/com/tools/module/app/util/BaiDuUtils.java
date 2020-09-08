@@ -6,6 +6,8 @@ import com.baidu.aip.speech.AipSpeech;
 import com.baidu.aip.speech.TtsResponse;
 import com.baidu.aip.util.Util;
 import com.tools.common.constant.SystemConstant;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
@@ -17,11 +19,14 @@ import java.util.HashMap;
 
 /**
  * 百度智能AI
+ * @author 小柒2012
  */
 @Component
 @Configuration
 @EnableConfigurationProperties({BaiDuProperties.class})
 public class BaiDuUtils {
+
+    private final static Logger LOGGER = LoggerFactory.getLogger(BaiDuUtils.class);
 
     private BaiDuProperties baiDu;
 
@@ -43,7 +48,7 @@ public class BaiDuUtils {
             instance.setConnectionTimeoutInMillis(2000);
             instance.setSocketTimeoutInMillis(60000);
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.error("百度智能AI初始化失败,{}", e.getMessage());
         }
     }
 

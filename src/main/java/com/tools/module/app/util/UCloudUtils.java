@@ -8,8 +8,10 @@ import java.util.SortedMap;
 
 /**
  * 生成签名
+ * @author 小柒2012
  */
 public class UCloudUtils {
+
     /**
      * sign签名
      */
@@ -21,15 +23,16 @@ public class UCloudUtils {
         while (it.hasNext()) {
             Map.Entry entry = (Map.Entry) it.next();
             String k = (String) entry.getKey();
-            String v =  (String)entry.getValue();
+            String v = (String) entry.getValue();
             sb.append(k + v);
         }
         sb.append(privateKey);
         String sign = shaEncode(sb.toString());
         return sign;
     }
+
     public static String shaEncode(String inStr) throws Exception {
-        MessageDigest sha = null;
+        MessageDigest sha;
         try {
             sha = MessageDigest.getInstance("SHA");
         } catch (Exception e) {

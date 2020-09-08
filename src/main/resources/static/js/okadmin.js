@@ -26,7 +26,7 @@ layui.use(["element", "layer", "okUtils", "okTab", "okLayer"], function () {
     /**
      * 添加新窗口
      */
-    $("body").on("click", "#navBar .layui-nav-item a,#userInfo a", function () {
+    $("body").on("click", "#navBar .layui-nav-item a", function () {
         // 如果不存在子级
         if ($(this).siblings().length == 0) {
             okTab.tabAdd($(this));
@@ -37,6 +37,20 @@ layui.use(["element", "layer", "okUtils", "okTab", "okLayer"], function () {
             var topLevelEle = $(this).parents("li.layui-nav-item");
             var childs = $("#navBar > li > dl.layui-nav-child").not(topLevelEle.children("dl.layui-nav-child"));
             childs.removeAttr('style');
+        }
+    });
+     /**
+     * 个人设置
+     */
+    $("body").on("click", "#userInfo a", function () {
+        var url = $(this).attr("data-url");
+        if(url!=undefined){
+            var title = $(this).html();
+            userInfo(url,title);
+        }else{
+            okLayer.confirm("确定要退出吗？", function (index) {
+                window.location = "/sys/logout";
+            });
         }
     });
 
@@ -302,15 +316,6 @@ layui.use(["element", "layer", "okUtils", "okTab", "okLayer"], function () {
     });
 
     /**
-     * 退出操作
-     */
-    $("#logout").click(function () {
-        okLayer.confirm("确定要退出吗？", function (index) {
-            window.location = "/sys/logout";
-        });
-    });
-
-    /**
      * 锁定账户
      */
     $("#lock").click(function () {
@@ -332,6 +337,21 @@ layui.use(["element", "layer", "okUtils", "okTab", "okLayer"], function () {
             });
         });
     });
+    function userInfo(url,title){
+        okUtils.dialogOpen({
+            title: title,
+            url: url,
+            scroll : true,
+            width: '40%',
+            height: '60%',
+            success : function(dialog) {
+                dialog.vm.load();
+            },
+            yes : function(dialog) {
+                dialog.vm.acceptClick();
+            }
+        });
+    }
 
     console.log("       _                     _       _       \n" +
         "      | |                   | |     (_)      \n" +

@@ -11,6 +11,10 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * 自动装配
+ * @author 小柒2012
+ */
 @Configuration
 @ConditionalOnClass(Config.class)
 @EnableConfigurationProperties(RedissonProperties.class)

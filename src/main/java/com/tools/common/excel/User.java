@@ -3,12 +3,14 @@ package com.tools.common.excel;
 import com.alibaba.excel.annotation.ExcelProperty;
 import com.alibaba.excel.annotation.write.style.ColumnWidth;
 import com.alibaba.excel.annotation.write.style.ContentRowHeight;
-import com.alibaba.excel.metadata.BaseRowModel;
-import com.alibaba.excel.metadata.BasicParameter;
 import lombok.Data;
 
 import java.io.Serializable;
 
+/**
+ * 简单的用户封装
+ * @author 小柒2012
+ */
 @Data
 @ColumnWidth(22)
 @ContentRowHeight(15)

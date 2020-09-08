@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 初始化一个任务 测试用
+ * @author 小柒2012
  */
 @Component
 public class TaskRunner implements ApplicationRunner {

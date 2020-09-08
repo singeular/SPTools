@@ -20,6 +20,7 @@ import java.util.Map;
 /**
  * Shiro权限配置
  * 爪哇笔记：https://blog.52itstyle.vip
+ * @author 小柒2012.zhang
  */
 @Configuration
 @EnableConfigurationProperties({RedisProperties.class})
@@ -96,14 +97,17 @@ public class ShiroConfig {
     public SessionsSecurityManager securityManager() {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
         securityManager.setRealm(userRealm());
-        //securityManager.setCacheManager(cacheManager());
+        /**
+         * 不需要缓存 每次实时读取数据库
+         * securityManager.setCacheManager(cacheManager());
+         */
         securityManager.setSessionManager(sessionManager());
         return securityManager;
     }
     @Bean
     public DefaultWebSessionManager sessionManager() {
         DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
-        sessionManager.setSessionIdUrlRewritingEnabled(false);//去掉 JSESSIONID
+        sessionManager.setSessionIdUrlRewritingEnabled(false);
         /**
          * 如果这里赋值，默认会使用这里的参数
          */

@@ -1,5 +1,7 @@
 package com.tools.module.app.util;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
@@ -14,11 +16,14 @@ import java.util.TreeMap;
 
 /**
  * 检黄
+ * @author 小柒2012
  */
 @Component
 @Configuration
 @EnableConfigurationProperties({YellowProperties.class})
 public class YellowUtils {
+
+    private final static Logger LOGGER = LoggerFactory.getLogger(YellowUtils.class);
 
     @Value("${min.io.endpoint}")
     private String minUrl;
@@ -72,7 +77,7 @@ public class YellowUtils {
             ResponseEntity<String> responseEntity = rest.exchange(uCloud.getUrl(), HttpMethod.POST, httpEntity, String.class);
             return responseEntity.getBody();
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.error("鉴黄失败，{}",e.getMessage());
             return "";
         }
     }

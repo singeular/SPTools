@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 今日推荐
+ * @author 小柒2012
  */
 @RestController
 @RequestMapping("sys/recommend")

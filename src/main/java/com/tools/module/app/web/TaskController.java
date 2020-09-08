@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * 任务调度
  * 爪哇笔记：https://blog.52itstyle.vip
+ * @author 小柒2012
  */
 @Api(tags ="任务调度")
 @RestController
@@ -33,13 +34,8 @@ public class TaskController extends AbstractController {
      * @return
      */
     @PostMapping("/save")
-    public Result save(AppTask task){
-        try {
-            taskService.save(task);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return Result.error();
-        }
+    public Result save(AppTask task) throws Exception {
+        taskService.save(task);
         return Result.ok();
     }
 
@@ -49,24 +45,14 @@ public class TaskController extends AbstractController {
      * @return
      */
     @PostMapping("/list")
-    public Result list(AppTask task) {
-        try {
-            return taskService.listQuartzEntity(task);
-        } catch (SchedulerException e) {
-            e.printStackTrace();
-            return Result.error();
-        }
+    public Result list(AppTask task) throws SchedulerException {
+        return taskService.listQuartzEntity(task);
     }
 
     @PostMapping("/trigger")
-    public  Result trigger(AppTask task) {
-        try {
-            JobKey key = new JobKey(task.getName(),task.getGroup());
-            scheduler.triggerJob(key);
-        } catch (SchedulerException e) {
-            e.printStackTrace();
-            return Result.error();
-        }
+    public  Result trigger(AppTask task) throws SchedulerException {
+        JobKey key = new JobKey(task.getName(),task.getGroup());
+        scheduler.triggerJob(key);
         return Result.ok();
     }
 
@@ -76,13 +62,8 @@ public class TaskController extends AbstractController {
      * @return
      */
     @PostMapping("/resume")
-    public  Result resume(AppTask task) {
-        try {
-            taskService.resume(task);
-        } catch (SchedulerException e) {
-            e.printStackTrace();
-            return Result.error();
-        }
+    public  Result resume(AppTask task) throws SchedulerException {
+        taskService.resume(task);
         return Result.ok();
     }
 
@@ -92,12 +73,8 @@ public class TaskController extends AbstractController {
      * @return
      */
     @PostMapping("/delete")
-    public  Result delete(AppTask task) {
-        try {
-            taskService.delete(task);
-        } catch (Exception e) {
-            return Result.error();
-        }
+    public  Result delete(AppTask task) throws SchedulerException {
+        taskService.delete(task);
         return Result.ok();
     }
 }

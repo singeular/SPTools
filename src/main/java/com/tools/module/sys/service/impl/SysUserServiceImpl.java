@@ -162,7 +162,16 @@ public class SysUserServiceImpl implements SysUserService {
         }
     }
 
-    public static void main(String[] args) {
-        System.out.println(MD5Utils.encrypt("admin", "admin2020"));
+    @Override
+    @Transactional(rollbackFor=Exception.class)
+    public Result update(SysUser user) {
+        String nativeSql = "UPDATE sys_user  SET nickname=?,email=?,mobile=? WHERE user_id=?";
+        Object[] params = new Object[]{user.getNickname(),user.getEmail(),user.getMobile(),user.getUserId()};
+        int count = dynamicQuery.nativeExecuteUpdate(nativeSql,params);
+        if(count==1){
+            return Result.ok("更新成功");
+        }else{
+            return Result.ok("更新成功");
+        }
     }
 }

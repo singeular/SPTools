@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * redis分布式锁
  * 爪哇笔记 https://blog.52itstyle.vip
+ * @author 小柒2012
  */
 public class RedissLockUtil {
 

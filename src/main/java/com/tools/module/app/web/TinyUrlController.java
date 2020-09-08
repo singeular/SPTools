@@ -1,5 +1,6 @@
 package com.tools.module.app.web;
 
+import com.tools.common.constant.SystemConstant;
 import com.tools.common.model.Result;
 import com.tools.common.util.HttpClient;
 import com.tools.module.app.entity.AppTinyUrl;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 短连接
+ * @author 小柒2012
  */
 @Api(tags ="短连管理")
 @RestController
@@ -27,8 +29,8 @@ public class TinyUrlController {
      */
     @RequestMapping("save")
     public Result save(AppTinyUrl tinyUrl) {
-        int code = HttpClient.client(tinyUrl.getUrl());
-        if(code==200){
+        Integer code = HttpClient.client(tinyUrl.getUrl());
+        if(SystemConstant.CODE_200.equals(code.toString())){
             return tinyUrlService.save(tinyUrl);
         }else{
             return Result.error("是不是网址心里没点数吗？瞎JB输！");

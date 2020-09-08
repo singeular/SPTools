@@ -3,6 +3,10 @@ package com.tools.common.redis;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+/**
+ * 参数配置
+ * @author 小柒2012
+ */
 @Data
 @ConfigurationProperties(prefix = "spring.redis")
 public class RedissonProperties {

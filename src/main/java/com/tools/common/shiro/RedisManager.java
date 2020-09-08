@@ -6,6 +6,10 @@ import org.crazycake.shiro.WorkAloneRedisManager;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
+/**
+ * RedisManager
+ * @author 小柒2012.zhang
+ */
 public class RedisManager extends WorkAloneRedisManager implements IRedisManager {
 
     private RedisProperties redis;

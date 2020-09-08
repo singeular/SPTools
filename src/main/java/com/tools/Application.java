@@ -28,6 +28,7 @@ public class Application extends SpringBootServletInitializer {
         SpringApplication.run(Application.class, args);
         logger.info("一个能够让程序猿快速开发的炒鸡工具箱");
     }
+
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         return application.sources(Application.class);

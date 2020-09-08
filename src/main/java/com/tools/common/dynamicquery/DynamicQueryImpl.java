@@ -12,9 +12,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.List;
+
 /**
  * 查询的实现类
  * 爪哇笔记 https://blog.52itstyle.vip
+ * @author 小柒2012
  */
 @Repository
 public class DynamicQueryImpl implements DynamicQuery {

@@ -2,6 +2,9 @@ package com.tools.module.wechat.model;
 
 import lombok.Data;
 
+/**
+ * @author 小柒2012
+ */
 @Data
 public class PushModel {
 

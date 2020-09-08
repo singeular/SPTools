@@ -4,6 +4,7 @@ import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.IdUtil;
 import cn.hutool.json.JSONObject;
+import com.tools.common.config.AbstractController;
 import com.tools.common.constant.SystemConstant;
 import com.tools.common.model.Result;
 import com.tools.common.util.DateUtils;
@@ -24,10 +25,11 @@ import java.io.File;
 
 /**
  * 今日推荐
+ * @author 小柒2012
  */
 @RestController
 @RequestMapping("sys/girl")
-public class GirlController {
+public class GirlController extends AbstractController {
 
     @Autowired
     private GirlService meiZiService;
@@ -84,7 +86,7 @@ public class GirlController {
                 res.put("message", "upload success!");
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("文件上传失败，{}",e.getMessage());
         }
         return res;
     }

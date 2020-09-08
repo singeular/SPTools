@@ -1,8 +1,6 @@
 package com.tools.module.app.util;
 
-import com.tools.common.model.Result;
 import com.tools.module.app.entity.AppNotice;
-import org.json.JSONObject;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
@@ -12,6 +10,7 @@ import org.springframework.web.client.RestTemplate;
 
 /**
  * 消息推送
+ * @author 小柒2012
  */
 @Component
 @Configuration

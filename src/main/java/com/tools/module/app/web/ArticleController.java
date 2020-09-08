@@ -21,8 +21,9 @@ import java.io.File;
 /**
  * 文章管理
  * 爪哇笔记：https://blog.52itstyle.vip
+ * @author 小柒2012
  */
-@Api(tags ="文章管理")
+@Api(tags = "文章管理")
 @RestController
 @RequestMapping("/app/article")
 public class ArticleController extends AbstractController {
@@ -39,21 +40,23 @@ public class ArticleController extends AbstractController {
      * 列表
      */
     @PostMapping("/list")
-    public Result list(AppArticle article){
+    public Result list(AppArticle article) {
         return articleService.list(article);
     }
+
     /**
      * 查询
      */
     @PostMapping("/get")
-    public Result get(Long id){
+    public Result get(Long id) {
         return articleService.get(id);
     }
+
     /**
      * 保存
      */
     @PostMapping("/save")
-    public Result save(@RequestBody AppArticle article){
+    public Result save(@RequestBody AppArticle article) {
         return articleService.save(article);
     }
 
@@ -61,7 +64,7 @@ public class ArticleController extends AbstractController {
      * 删除
      */
     @PostMapping("/delete")
-    public Result delete(Long id){
+    public Result delete(Long id) {
         return articleService.delete(id);
     }
 
@@ -73,21 +76,21 @@ public class ArticleController extends AbstractController {
     public JSONObject upload(@RequestParam(value = "editormd-image-file") MultipartFile file) {
         JSONObject res = new JSONObject();
         try {
-            if(file!=null){
+            if (file != null) {
                 File parentFile = createParentFile();
                 String fileName = file.getOriginalFilename();
                 String suffix = fileName.substring(fileName.lastIndexOf("."));
                 String uuid = IdUtil.simpleUUID();
                 fileName = uuid + suffix;
-                File fromPic = new File(parentFile,fileName);
+                File fromPic = new File(parentFile, fileName);
                 FileUtil.writeFromStream(file.getInputStream(), fromPic);
                 /**
                  * 入 minIo
                  */
-                String fileDay = DateUtil.thisYear()+"/"+(DateUtil.thisMonth()+1)+"/"+DateUtil.thisDayOfMonth();
-                String minFile = parentFile.getPath()+SystemConstant.SF_FILE_SEPARATOR+fileName;
-                minIoUtil.putObject(minIoUtil.getBucketName(),fileDay+"/"+fileName,minFile);
-                res.put("url",minIoUtil.getEndpoint()+"/"+minIoUtil.getBucketName()+"/"+fileDay+"/"+fileName);
+                String fileDay = DateUtil.thisYear() + "/" + (DateUtil.thisMonth() + 1) + "/" + DateUtil.thisDayOfMonth();
+                String minFile = parentFile.getPath() + SystemConstant.SF_FILE_SEPARATOR + fileName;
+                minIoUtil.putObject(minIoUtil.getBucketName(), fileDay + "/" + fileName, minFile);
+                res.put("url", minIoUtil.getEndpoint() + "/" + minIoUtil.getBucketName() + "/" + fileDay + "/" + fileName);
                 res.put("success", 1);
                 res.put("message", "upload success!");
             }
@@ -99,18 +102,19 @@ public class ArticleController extends AbstractController {
 
     /**
      * 创建多级文件夹
+     *
      * @return
      */
-    public File createParentFile(){
-        File parentFile = new File(filePath+ SystemConstant.SF_FILE_SEPARATOR+ DateUtil.thisYear());
+    public File createParentFile() {
+        File parentFile = new File(filePath + SystemConstant.SF_FILE_SEPARATOR + DateUtil.thisYear());
         if (!parentFile.exists()) {
             parentFile.mkdirs();
         }
-        parentFile = new File(parentFile,(DateUtil.thisMonth()+1)+"");
+        parentFile = new File(parentFile, (DateUtil.thisMonth() + 1) + "");
         if (!parentFile.exists()) {
             parentFile.mkdirs();
         }
-        parentFile = new File(parentFile,DateUtil.thisDayOfMonth()+"");
+        parentFile = new File(parentFile, DateUtil.thisDayOfMonth() + "");
         if (!parentFile.exists()) {
             parentFile.mkdirs();
         }

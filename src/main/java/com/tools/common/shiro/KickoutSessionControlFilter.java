@@ -21,11 +21,24 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
+/**
+ * 并发用户控制
+ * @author 小柒2012.zhang
+ */
 public class KickoutSessionControlFilter extends AccessControlFilter {
 
-    private String kickoutUrl; //踢出后到的地址
-    private boolean kickoutAfter = false; //踢出之前登录的/之后登录的用户 默认踢出之前登录的用户
-    private int maxSession = 1; //同一个帐号最大会话数 默认1
+    /**
+     * 踢出后到的地址
+     */
+    private String kickoutUrl;
+    /**
+     * 踢出之前登录的/之后登录的用户 默认踢出之前登录的用户
+     */
+    private boolean kickoutAfter = false;
+    /**
+     * 同一个帐号最大会话数 默认1
+     */
+    private int maxSession = 1;
 
     private SessionManager sessionManager;
     private Cache<String, Deque<Serializable>> cache;

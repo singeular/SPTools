@@ -10,20 +10,22 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 人工智能
+ * @author 小柒2012
  */
-@Api(tags ="人工智能")
+@Api(tags = "人工智能")
 @RestController
 @RequestMapping("app/ai")
 public class AiController {
 
     @Autowired
     private BaiDuUtils baiDuUtils;
+
     /**
      * 文字转语音
      */
     @PostMapping("/text2Voice")
-    public Result text2Voice(String text,Boolean per){
-        String voice = baiDuUtils.text2Voice(text,per);
-        return Result.ok("/file/"+voice);
+    public Result text2Voice(String text, Boolean per) {
+        String voice = baiDuUtils.text2Voice(text, per);
+        return Result.ok("/file/" + voice);
     }
 }

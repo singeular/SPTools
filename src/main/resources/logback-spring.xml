@@ -68,6 +68,13 @@
             <level>INFO</level>
         </filter>
     </appender>
+
+    <!-- 屏蔽日志 -->
+    <logger name="springfox"   level="ERROR"/>
+    <logger name="org.hibernate"   level="ERROR"/>
+    <logger name="org.springframework"   level="ERROR"/>
+    <logger name="com.zaxxer.hikari"   level="ERROR"/>
+
     <!-- additivity 避免执行2次 -->
     <logger name="com.tools"  level="INFO"  additivity="false">
         <appender-ref ref="STDOUT"/>

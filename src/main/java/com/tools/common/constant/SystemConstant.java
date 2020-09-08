@@ -3,6 +3,7 @@ package com.tools.common.constant;
 /**
  * 系统级静态变量
  * 爪哇笔记 https://blog.52itstyle.vip
+ * @author 小柒2012
  */
 public class SystemConstant {
 
@@ -85,9 +86,14 @@ public class SystemConstant {
 
 
     /**
-     * 异常标识
+     * 500 标识
      */
     public static final String CODE_500 = "500";
+
+	/**
+	 * 200 标识
+	 */
+	public static final String CODE_200 = "200";
 
 	/**
 	 * CODE 标识

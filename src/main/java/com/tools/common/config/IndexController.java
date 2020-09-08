@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 /**
  * 通用访问拦截匹配
  * 爪哇笔记 https://blog.52itstyle.vip
+ * @author 小柒2012
  */
 @Controller
 public class IndexController {

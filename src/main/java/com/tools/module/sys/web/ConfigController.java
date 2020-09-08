@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * 参数设置
  * 爪哇笔记：https://blog.52itstyle.vip
+ * @author 小柒2012
  */
 @Api(tags ="参数设置")
 @RestController

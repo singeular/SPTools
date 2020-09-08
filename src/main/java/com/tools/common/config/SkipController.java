@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 /**
  * 短连接跳转
+ * @author 小柒2012
  */
 @Controller
 @RequestMapping

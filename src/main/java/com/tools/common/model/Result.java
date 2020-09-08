@@ -6,6 +6,7 @@ import java.util.Map;
 /**
  *  页面响应
  * 	爪哇笔记 https://blog.52itstyle.vip
+ * 	@author 小柒2012
  */
 public class Result extends HashMap<String, Object> {
 

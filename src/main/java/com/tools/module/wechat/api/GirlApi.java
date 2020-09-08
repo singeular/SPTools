@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * 图床
  * 爪哇笔记：https://blog.52itstyle.vip
+ * @author 小柒2012
  */
 @RestController
 @RequestMapping("minApp/girl")

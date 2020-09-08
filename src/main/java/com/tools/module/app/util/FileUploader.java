@@ -11,7 +11,7 @@ import java.security.NoSuchAlgorithmException;
 public class FileUploader {
     public static void main(String[] args) throws NoSuchAlgorithmException, IOException, InvalidKeyException, XmlPullParserException {
         try {
-            MinioClient minioClient = new MinioClient("http://minio.cloudbed.vip", "admin", "Zzp6347148");
+            MinioClient minioClient = new MinioClient("http://minio.52itstyle.vip", "admin", "admin");
             boolean isExist = minioClient.bucketExists("file");
             if(isExist) {
                 System.out.println("Bucket already exists.");

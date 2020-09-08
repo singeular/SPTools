@@ -27,6 +27,7 @@ import java.io.File;
 /**
  * 图床
  * 爪哇笔记：https://blog.52itstyle.vip
+ * @author 小柒2012
  */
 @Api(tags ="图片管理")
 @RestController
@@ -87,7 +88,7 @@ public class ImageController {
                 if(StringUtils.isNotBlank(msg)){
                     JSONObject json = new JSONObject(msg);
                     String retCode = json.get("RetCode").toString();
-                    if("0".equals(retCode)){
+                    if(SystemConstant.CODE_0.equals(retCode)){
                         JSONObject result = new JSONObject(json.get("Result"));
                         result = new JSONObject(result.get("Porn"));
                         /**

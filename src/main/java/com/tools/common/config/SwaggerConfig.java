@@ -10,6 +10,10 @@ import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
+/**
+ * API 配置
+ * @author 小柒2012
+ */
 @Configuration
 public class SwaggerConfig {
 
