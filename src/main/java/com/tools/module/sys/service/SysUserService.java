@@ -73,4 +73,11 @@ public interface SysUserService {
      * @return
      */
     Result update(SysUser user);
+
+    /**
+     * 根据角色获取用户信息
+     * @param roleSign
+     * @return
+     */
+    List<SysUser> listUserByRole(String roleSign);
 }

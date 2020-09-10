@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * 表以及相关字段信息
+ * @author 小柒2012
  */
 @Data
 public class AppGen extends PageBean implements Serializable {

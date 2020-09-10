@@ -174,4 +174,9 @@ public class SysUserServiceImpl implements SysUserService {
             return Result.ok("更新成功");
         }
     }
+
+    @Override
+    public List<SysUser> listUserByRole(String roleSign) {
+        return null;
+    }
 }

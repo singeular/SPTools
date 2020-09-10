@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 
-@Service()
+@Service
 public class AppGenServiceImpl implements AppGenService {
 
 	@Autowired
@@ -28,14 +28,15 @@ public class AppGenServiceImpl implements AppGenService {
     @Transactional(readOnly = true)
 	public Result list(AppGen gen){
 	    String countSql = "SELECT COUNT(*) FROM information_schema.tables ";
-        countSql +="WHERE table_schema='tools' AND table_name NOT LIKE 'qrtz_%'";
-	    Long totalCount = dynamicQuery.nativeQueryCount(countSql);
+        countSql +="WHERE table_schema=? AND table_name NOT LIKE 'qrtz_%'";
+        Object[] params = new Object[]{schema};
+	    Long totalCount = dynamicQuery.nativeQueryCount(countSql,params);
         PageBean<AppGen> data = new PageBean<>();
         if(totalCount>0){
             String nativeSql = "SELECT table_name as tableName,table_comment as tableComment ";
-            nativeSql+="FROM information_schema.tables WHERE table_schema='tools' AND table_name NOT LIKE 'qrtz_%'";
+            nativeSql+="FROM information_schema.tables WHERE table_schema=? AND table_name NOT LIKE 'qrtz_%'";
             Pageable pageable = PageRequest.of(gen.getPageNo(),gen.getPageSize());
-            List<AppGen> list = dynamicQuery.nativeQueryPagingListModel(AppGen.class,pageable, nativeSql);
+            List<AppGen> list = dynamicQuery.nativeQueryPagingListModel(AppGen.class,pageable, nativeSql,params);
             data = new PageBean<>(list, totalCount);
         }
         return Result.ok(data);

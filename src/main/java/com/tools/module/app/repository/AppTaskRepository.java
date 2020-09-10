@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 /**
- * sys_area Repository
+ * app_task Repository
  * Created by 小柒2012
  * Sun Oct 27 12:56:55 CST 2019
 */ 

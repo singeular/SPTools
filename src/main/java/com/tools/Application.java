@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.activiti.spring.boot.SecurityAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.cache.annotation.EnableCaching;
@@ -17,10 +18,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * swagger地址：http://localhost:8080/swagger-ui.html
  * 启动前请务必看 README.md 中的安装教程
  */
-@SpringBootApplication
 @EnableCaching
 @EnableScheduling
 @EnableSwagger2
+@SpringBootApplication(exclude = { SecurityAutoConfiguration.class })
 public class Application extends SpringBootServletInitializer {
     private static final Logger logger = LoggerFactory.getLogger(Application.class);
 

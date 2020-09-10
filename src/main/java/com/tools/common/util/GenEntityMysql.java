@@ -13,6 +13,7 @@ import java.util.List;
 
 /**
  * 由数据库表生成jpa实体工具
+ * @author 匿名
  */
 public class GenEntityMysql {
 
@@ -23,11 +24,11 @@ public class GenEntityMysql {
     /**
      * //指定实体生成所在包的路径
      */
-    private String entityPackage = "com.itstyle.picture.module.app.entity";
+    private String entityPackage = "com.tools.module.app.entity";
     /**
      * 指定实体仓库接口生成所在包的路径
      */
-    private String repositoryPackage = "com.itstyle.picture.module.app.repository.ftl";
+    private String repositoryPackage = "com.tools.module.app.repository.ftl";
     /**
      * 作者名字
      */
@@ -79,15 +80,15 @@ public class GenEntityMysql {
 
     private static final String NO = "NO";
 
-    /*
-     *  构造函数
+    /**
+     * 构造函数
      */
     public GenEntityMysql() {
 
     }
 
     /**
-     *
+     * 执行
      */
     public static void main(String[] args) {
          GenEntityMysql genEntityMysql = new GenEntityMysql();
@@ -96,13 +97,10 @@ public class GenEntityMysql {
 
     /**
      * 功能：生成实体类主体代码
-     *
      * @return
      */
     private String parseEntity() {
         StringBuffer sb = new StringBuffer();
-
-
         sb.append("package " + this.entityPackage + ";\r\n\r\n");
         sb.append("import javax.persistence.Entity;" + "\r\n");
         sb.append("import javax.persistence.Table;" + "\r\n");

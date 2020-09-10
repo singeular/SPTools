@@ -6,10 +6,17 @@ import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.stereotype.Component;
 
+/**
+ * 工具类
+ * @author 小柒2012
+ */
 @Component
 public final class SpringUtils implements BeanFactoryPostProcessor {
-    //静态
-    private static ConfigurableListableBeanFactory beanFactory; // Spring应用上下文环境
+
+    /**
+     * Spring应用上下文环境
+     */
+    private static ConfigurableListableBeanFactory beanFactory;
 
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory)
