@@ -108,6 +108,11 @@ JDK1.8、Maven、Mysql、Redis、IntelliJ IDEA、minio、fastdfs
         <td><img src="https://images.gitee.com/uploads/images/2020/0512/192839_205e772d_87650.png"/></td>
         <td><img src="https://images.gitee.com/uploads/images/2020/0512/192851_30924c45_87650.png"/></td>
     </tr>
+    </tr>
+	<tr>
+        <td><img src="https://images.gitee.com/uploads/images/2020/0910/193231_210d63de_87650.png"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2020/0910/193248_be9fb3fd_87650.png"/></td>
+    </tr>
 </table>
 
 
