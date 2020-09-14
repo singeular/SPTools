@@ -11,7 +11,7 @@
 
 #### 基础环境
 
-JDK1.8、Maven、Mysql、Redis、IntelliJ IDEA、minio、fastdfs
+JDK1.8、Maven、Mysql、Redis、IntelliJ IDEA、minio、fastdfs、OpenOffice
 
 #### 妹子图
 
@@ -43,6 +43,8 @@ JDK1.8、Maven、Mysql、Redis、IntelliJ IDEA、minio、fastdfs
 
 - 工作流：一个简单的工作流功能，后期慢慢完善。
 
+- 文档管理：文档上传、转换、预览功能，后期慢慢完善。
+
 - 系统管理：敏捷开发、系统菜单、全局配置、在线代码编辑器，小伙伴们只需要设计好表结构，三秒中就能撸出一个增删查改的模块。
 
 
@@ -73,12 +75,13 @@ JDK1.8、Maven、Mysql、Redis、IntelliJ IDEA、minio、fastdfs
 
 - 请自行启动 `redis`，见基础环境目录，里面有配置教程。
 
+- 请自行安装 `OpenOffice`，文件过大，不易上传，见群文件。
+
 - 配置完成，运行`Application`中的 `main `方法。
 
 - 测试账号：admin 密码：111111
 
 ## 演示图
-
 
 
 <table>
@@ -118,6 +121,16 @@ JDK1.8、Maven、Mysql、Redis、IntelliJ IDEA、minio、fastdfs
 	<tr>
         <td><img src="https://images.gitee.com/uploads/images/2020/0910/193231_210d63de_87650.png"/></td>
         <td><img src="https://images.gitee.com/uploads/images/2020/0910/193248_be9fb3fd_87650.png"/></td>
+    </tr>
+    </tr>
+	<tr>
+        <td><img src="https://images.gitee.com/uploads/images/2020/0914/222751_dc20ba1c_87650.png"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2020/0914/222815_39a0ef87_87650.png"/></td>
+    </tr>
+    </tr>
+	<tr>
+        <td><img src="https://images.gitee.com/uploads/images/2020/0914/222841_9625378a_87650.png"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2020/0914/222857_1c129d6e_87650.png"/></td>
     </tr>
 </table>
 
