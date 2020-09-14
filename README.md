@@ -73,12 +73,13 @@ JDK1.8、Maven、Mysql、Redis、IntelliJ IDEA、minio、fastdfs、OpenOffice
 
 - 请自行启动 `redis`，见基础环境目录，里面有配置教程。
 
+- 请自行安装 `OpenOffice`，文件过大，不易上传，见群文件。
+
 - 配置完成，运行`Application`中的 `main `方法。
 
 - 测试账号：admin 密码：111111
 
 ## 演示图
-
 
 
 <table>
@@ -118,6 +119,16 @@ JDK1.8、Maven、Mysql、Redis、IntelliJ IDEA、minio、fastdfs、OpenOffice
 	<tr>
         <td><img src="https://images.gitee.com/uploads/images/2020/0910/193231_210d63de_87650.png"/></td>
         <td><img src="https://images.gitee.com/uploads/images/2020/0910/193248_be9fb3fd_87650.png"/></td>
+    </tr>
+    </tr>
+	<tr>
+        <td><img src="https://images.gitee.com/uploads/images/2020/0914/222751_dc20ba1c_87650.png"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2020/0914/222815_39a0ef87_87650.png"/></td>
+    </tr>
+    </tr>
+	<tr>
+        <td><img src="https://images.gitee.com/uploads/images/2020/0914/222841_9625378a_87650.png"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2020/0914/222857_1c129d6e_87650.png"/></td>
     </tr>
 </table>
 
