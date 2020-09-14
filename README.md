@@ -11,7 +11,7 @@
 
 #### 基础环境
 
-JDK1.8、Maven、Mysql、Redis、IntelliJ IDEA、minio、fastdfs
+JDK1.8、Maven、Mysql、Redis、IntelliJ IDEA、minio、fastdfs、OpenOffice
 
 #### 妹子图
 
