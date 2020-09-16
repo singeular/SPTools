@@ -54,6 +54,6 @@ public class MemberController extends AbstractController {
      */
     @PostMapping("/update")
     public Result update(@RequestBody SysUser user){
-        return sysUserService.updatePwd(user);
+        return sysUserService.update(user);
     }
 }

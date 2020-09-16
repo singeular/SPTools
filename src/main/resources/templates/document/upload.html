@@ -61,15 +61,14 @@
                     }
                 },
                 download:function(type){
-                    var url = 'http://localhost:9000/'+vm.filePath;
+                    var url = vm.filePath;
                     $("<form method='get'  action='"+url+"'></form>")
                     .appendTo('body')
                     .submit()
                     .remove();
                 },
                 preview:function(){
-                    var path = vm.filePath.replace(/.[^/.]+$/, "")+".pdf";
-                    var url = 'http://localhost:9000/'+path;
+                    var url = vm.filePath.replace(/.[^/.]+$/, "")+".pdf";
                     okUtils.dialogOpen({
                         title: '预览',
                         url: url,
