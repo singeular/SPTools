@@ -22,7 +22,7 @@
                     <input type="password" lay-verify="required|password" value="111111" name="password" placeholder="请输入密码" autocomplete="off" id="password" class="layui-input">
                 </div>
                 <div class="layui-form-item">
-                    <button class="layui-btn layui-block" lay-filter="login" lay-submit="">登录</button>
+                    <button type="button" id="TencentCaptcha" data-appid="2042633230" data-cbfn="callback" class="layui-btn layui-block" >登录</button>
                 </div>
                 <div id="wechat" style="display:none">
                     <img src="/images/wechat.jpg">
@@ -33,15 +33,16 @@
 <!--               </div>-->
             </form>
         </div>
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
         <script th:src="@{/lib/layui/layui.js}"></script>
         <script th:src="@{/lib/common/login.js}"></script>
         <script>
             layui.use(["form", "okUtils", "okLayer"], function () {
-                var form = layui.form;
-                var $ = layui.jquery;
+                form = layui.form;
+                $ = layui.jquery;
                 var okGVerify = layui.okGVerify;
                 var okUtils = layui.okUtils;
-                var okLayer = layui.okLayer;
+                okLayer = layui.okLayer;
                 /**
                  * 数据校验
                  */
@@ -53,29 +54,12 @@
                         }
                     }
                 });
-
                 /**
                  * 表单提交
                  */
                 form.on("submit(login)", function (data) {
-                    $.ajax({
-                        url:"/sys/login",
-                        type: "POST",
-                        data : data.field,
-                        success: function (result) {
-                            if(result.code==0){
-                                okLayer.msg.greenTick(result.msg, function () {
-                                    window.location = "index.html";
-                                });
-                            }else{
-                                $("#wechat").show();
-                                okLayer.msg.greenLaugh("为了演示安全性，请关注公众号回复[暗号]获取密码")
-                            }
-                        }
-                    });
                     return false;
                 });
-
                 /**
                  * 表单input组件单击时
                  */
@@ -103,6 +87,27 @@
                     }
                 })
             });
+            window.callback = function(res){
+                if(res.ret === 0){
+                    $.ajax({
+                        url:"/sys/login",
+                        type: "POST",
+                        data : {'username':$("#username").val(),
+                                'password':$("#password").val(),
+                                'ticket':res.ticket,'randstr':res.randstr},
+                        success: function (result) {
+                            if(result.code==0){
+                                okLayer.msg.greenTick(result.msg, function () {
+                                    window.location = "index.html";
+                                });
+                            }else{
+                                $("#wechat").show();
+                                okLayer.msg.greenLaugh("为了演示安全性，请关注公众号回复[暗号]获取密码")
+                            }
+                        }
+                    });
+                }
+            }
         </script>
     </body>
 </html>
