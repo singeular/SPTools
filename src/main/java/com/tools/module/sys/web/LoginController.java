@@ -2,11 +2,13 @@ package com.tools.module.sys.web;
 
 import com.tools.common.model.Result;
 import com.tools.common.util.MD5Utils;
+import com.tools.common.util.RedisUtil;
 import com.tools.common.util.ShiroUtils;
 import com.tools.module.sys.entity.SysUser;
 import com.tools.module.sys.service.SysUserService;
 import io.swagger.annotations.Api;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,6 +29,8 @@ public class LoginController {
 
     @Autowired
     private SysUserService sysUserService;
+    @Autowired
+    private RedisUtil redisUtil;
 
     /**
      * 登录
@@ -63,6 +67,8 @@ public class LoginController {
      */
     @GetMapping("/logout")
     public String logout(){
+        Long userId = ShiroUtils.getUserId();
+        redisUtil.del("authInfo:"+userId);
         ShiroUtils.logout();
         return "redirect:/login.html";
     }

@@ -35,14 +35,14 @@ public class UserRealm extends AuthorizingRealm {
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         Long userId = ShiroUtils.getUserId();
-        SimpleAuthorizationInfo info = (SimpleAuthorizationInfo) redisUtil.get("authInfo");
+        SimpleAuthorizationInfo info = (SimpleAuthorizationInfo) redisUtil.get("authInfo:"+userId);
         if(info==null){
             List<String> rolesSet = userService.listUserRoles(userId);
             List<String> permsSet = userService.listUserPerms(userId);
             info = new SimpleAuthorizationInfo();
             info.setRoles(new HashSet<>(rolesSet));
             info.setStringPermissions(new HashSet<>(permsSet));
-            redisUtil.set("authInfo",info);
+            redisUtil.set("authInfo:"+userId,info);
         }
         return info;
     }
