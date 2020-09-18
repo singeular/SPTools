@@ -159,9 +159,3 @@ JDK1.8、Maven、Mysql、Redis、IntelliJ IDEA、minio、fastdfs、OpenOffice
 
 欢迎关注： https://blog.52itstyle.vip
 
-
-## License
-
-AGPL v3
-
-任何二次开发及二次开源项目请严格遵守相应开源许可。
