@@ -35,6 +35,7 @@
                         <i-button type="info" @click="download('doc')">下载文档</i-button>
                         <i-button type="success" @click="download('pdf')">生成 pdf</i-button>
                         <i-button type="error" @click="preview">在线预览</i-button>
+                        <i-button type="error" @click="previewDoc">在线预览</i-button>
                     </div>
                 </template>
             </div>
@@ -71,6 +72,18 @@
                     var url = vm.filePath.replace(/.[^/.]+$/, "")+".pdf";
                     okUtils.dialogOpen({
                         title: '预览',
+                        url: url,
+                        scroll : true,
+                        width: '90%',
+                        height: '95%',
+                        btn: []
+                    });
+                },
+                previewDoc:function(){
+                    //外网环境
+                    var url = "https://view.officeapps.live.com/op/view.aspx?src="+vm.filePath;
+                    okUtils.dialogOpen({
+                        title: '',
                         url: url,
                         scroll : true,
                         width: '90%',
